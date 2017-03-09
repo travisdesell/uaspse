@@ -1,21 +1,22 @@
 <?php
 
-function print_footer($designer_names, $copyright_names) {
+$cwd[__FILE__] = __FILE__;
+if (is_link($cwd[__FILE__])) $cwd[__FILE__] = readlink($cwd[__FILE__]);
+$cwd[__FILE__] = dirname($cwd[__FILE__]);
+
+require_once $cwd[__FILE__] . '/../../mustache.php/src/Mustache/Autoloader.php';
+Mustache_Autoloader::register();
+
+function print_footer() {
+    global $cwd;
+
     $year = date("Y");
 
-    echo "
-        <!-- Footer
-        ================================================== -->
-        <hr>
-        <footer class='footer'>
-            <div class='container'>
-                <center>
-                <p>Designed by $designer_names with much help from <a href='http://twitter.github.com/bootstrap/getting-started.html'>Twitter's Bootstrap</a>.</p>
-                <p>&copy; $year $copyright_names and the University of North Dakota. Images are under creative commons or wikimedia commons licenses.</p>
-                </center>
-            </div>
-        </footer>
-    ";
+    $footer_template = file_get_contents($cwd[__FILE__] . "/templates/footer_template.html");
+    $footer_info = array();
+
+    $m = new Mustache_Engine;
+    echo $m->render($footer_template, $footer_info);
 }
 
 ?>

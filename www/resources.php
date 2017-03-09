@@ -9,13 +9,17 @@ require_once($cwd[__FILE__] . "/navbar.php");
 require_once($cwd[__FILE__] . "/footer.php");
 //require_once($cwd[__FILE__] . "/my_query.php");
 
-print_header("MBDH Spoke Project: Unmanned Aerial Systems, Plant Sciences and Education");
-print_navbar("home");
+print_header("MBDH Spoke Project: UASPSE: Resources");
+print_navbar("resources");
 
-$index_template = file_get_contents($cwd[__FILE__] . "/templates/index_template.html");
+/*
+$resources_template = file_get_contents($cwd[__FILE__] . "/templates/resources_template.html");
 
 $m = new Mustache_Engine;
-echo $m->render($index_template, $index_info);
+echo $m->render($resources_template, $resources_info);
+ */
+
+echo "<h2>Under Construction</h2>";
 
 print_footer();
 
