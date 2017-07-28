@@ -1,0 +1,150 @@
+a{text-decoration:none;}
+.clear{clear:both;}
+img{max-width:100%;}
+
+body{
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+ 	background-size: cover;
+ 	position:relative;
+ 	font-family: 'Open Sans', sans-serif;
+}
+.login-form {
+	background:#fff;
+	width:32%;
+	margin:9% auto 4% auto;
+ 	position: relative;
+}
+.head {
+	position: absolute;
+	top:-15%;
+	left: 35%;
+}
+.head img {
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-o-border-radius:50%;
+	-moz-border-radius:50%;
+	border:6px solid rgba(221, 218, 215, 0.23);
+}
+form {
+	padding:18% 2.5em;
+}
+form li{
+	list-style:none;
+	margin-bottom: 10px;
+	border:1px solid #40A9DF;
+	 box-shadow: 0 0 1em #40A9DF;
+	 -webkit-box-shadow: 0 0 1em #40A9DF;
+	 -o-box-shadow: 0 0 1em #40A9DF;
+	 -moz-box-shadow: 0 0 1em #40A9DF;
+}
+form li p{
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	padding: 0px 10px 0px 10px;
+	color: #858282;
+	font-size: 18px;
+	outline: none;
+	background: none;
+	border: none;
+	font-weight: 600;
+}
+
+.foot a{
+	text-align: center;
+	font-size:18px;
+	display: inline-block;
+	font-weight:600;
+	color: #fff;
+	transition: 0.1s all;
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-o-transition: 0.1s all;
+	cursor: pointer;
+	outline: none;
+	padding:10px 10px;
+	margin-top:3px;
+	font-family: 'Open Sans', sans-serif;
+	width:40%;
+	border:none;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-o-	border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	background: #e27f00;
+}
+.foot a:hover{
+	background: #dba35e;
+	
+}
+.profile{
+	float: right !important;
+	width: 33% !important;
+}
+.linkedin_btn{
+	text-align: center;
+	margin: 20%;
+
+}
+/***************************/
+.foot{
+	margin-top:2em;
+}
+
+/*-----start-responsive-design------*/
+@media (max-width:1024px){
+.login-form  {
+		margin:8% auto 0;
+		width:45%;
+	}
+}
+@media (max-width:768px){
+	.login-form  {
+		margin:12% auto 0;
+		width:57%;
+	}
+}
+@media (max-width:640px){                                  
+	.login-form  {
+		margin:13% auto 0;
+		width:70%;
+	}
+}
+@media (max-width:480px){                                  
+	.login-form  {
+		margin:20% auto 0;
+		width:90%;
+	}
+	
+}
+@media (max-width:320px){                                  
+	.login-form  {
+		margin:20% auto 0;
+		width:95%;
+	}
+	form{
+		padding:19% 1.5em; 
+	}
+	form li{
+		margin-top:10px;
+	}
+	.logout{
+		float:none;
+		font-size: 15px;
+		padding: 10px 10px;
+		width: 40%;
+		margin-left: 28%;
+	}
+	.head{
+		top:-12%;
+		left:35.5%;
+	}
+	.head img {
+		width:69%;
+	}
+	.foot{
+		margin-top: 0;
+	}
+}
