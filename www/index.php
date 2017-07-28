@@ -14,6 +14,8 @@ print_navbar("home");
 
 $index_template = file_get_contents($cwd[__FILE__] . "/templates/index_template.html");
 
+$index_info = array();
+
 $m = new Mustache_Engine;
 echo $m->render($index_template, $index_info);
 
