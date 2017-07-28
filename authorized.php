@@ -14,7 +14,7 @@
 
 		Also includes the stateHash function.
 	*/
-	require_once("../php_scripts/basicdata.php");
+	require_once("/var/www/html/php_scripts/basicdata.php");
 
 	$redirHost =  $_SERVER['HTTP_HOST'];
 	$redirPath =  parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);  
