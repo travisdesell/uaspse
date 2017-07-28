@@ -7,14 +7,17 @@
 			'name' => 'Jennifer Clarke',
 			'source' => 'img/jennifer_clarke_small.jpeg',
 			'bio' => ' Jennifer Clarke, Ph.D., Associate Professor of Food Science of Statistics and Food Science and Technology, Research Assistant Professor in Data Science at the University of Nebraska, B.A., Psychology, Skidmore College; B.A., Mathematics, Skidmore College; M.S., Statistics, Carnegie Mellon University, Ph. D., Statistics, The Pennsylvania State University. Dr. Clarke’s research interests encompass statistical methodology (with an emphasis on high dimensional and predictive methods), statistical computation, bioinformatics/computational biology, multi-type data analysis, data mining/machine learning, and bacterial genomics/metagenomics.',
-			'homepage' => 'http://bigdata.unl.edu/about'
+            'homepage' => 'http://bigdata.unl.edu/about',
+            'email' => 'jclarke3@unl.edu'
+
 		);
 
 		$people_info[1] = array(
 			'name' => 'Joe Colletti',
 			'source' => 'img/joe_colletti_small.jpeg',
 			'bio' => 'Joe Colletti, Ph.D., is the senior associate dean for the College of Agriculture and Life Sciences at Iowa State University and, the associate director of the Iowa Agriculture and Home Economics Experiment Station. He has served in those positions since 2006. He oversees budgets, research and personnel for the college and Experiment Station. He also facilitates research planning and activities related to the bioeconomy and, in particular, development of Iowa State’s BioCentury Research Farm. His research areas focus on the economics of agroforestry, management of streamside buffer systems on farmland and biorenewable resources. He has taught undergraduate and graduate courses in forestry and natural resources economics, decision-making and management.',
-			'homepage' => 'https://www.nrem.iastate.edu/people/joe-colletti'
+            'homepage' => 'https://www.nrem.iastate.edu/people/joe-colletti',
+            'email' => 'colletti@iastate.edu'
 		);
 
 		$people_info[2] = array(
@@ -29,7 +32,8 @@
 			'name' => 'Greg Monaco',
 			'source' => 'img/greg_monaco_small.jpeg',
 			'bio' => 'Greg Monaco, Ph.D., has held several positions with the <a href="https://www.greatplains.net/" target="_blank">Great Plains Network</a> since August, 2000, when he joined GPN. He began as Research Collaboration Coordinator, and then was promoted to Director for Research and Education, followed by Executive Director for several years. His passion is to assist to help enable a richer set of shared resources across the region and to help promote the exciting and leading edge activities of GPN member institutions. He appreciates the opportunity to work with the excellent scientists, researchers and educators in the Great Plains region..',
-			'homepage' => 'http://confluence.greatplains.net/display/~gmonaco'
+            'homepage' => 'http://confluence.greatplains.net/display/~gmonaco',
+            'email' => 'gmonaco@ksu.edu'
 		);
 
 		$peopleText  = "<h2 style='padding-top: 0cm; margin-top: 0cm;'>Principle Investigators</h2>\n";
