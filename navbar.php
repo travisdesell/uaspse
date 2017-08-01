@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class='navbar-brand' style='margin: 0px 0px 0px 0px; padding: 0px 5px 0px 0px;'><a href='/'><img src='img/uaspse-48-nob.png' /></a></span><a class='navbar-brand' href="/">UASPSE</a></span>
+            <span class='navbar-brand' style='margin: 0px 0px 0px 0px; padding: 0px 5px 0px 0px;'><a href='/'><img alt='Digital Agriculture: Unmanned Aircraft Systems, Plant Sciences, and Educaiton - Project Logo' src='img/uaspse-48-nob.png' /></a></span><a class='navbar-brand' href="/">UASPSE</a></span>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

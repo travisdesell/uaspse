@@ -10,14 +10,14 @@
 			</div>
 		</div>
 		<div class="col-lg-4">
-			<div class="well">
-				<h2>Place Holder1</h2>
-			</div>
+			<?php
+				require("templates/memberlist.php");
+			?>
 		</div>
-		<div class="col-lg-4">
-			<div class="well">
-				<h2>Place Holder2</h2>
-			</div>
+		<div class="col-lg-6">
+			<?php
+				require("templates/profdisplay.php");
+			?>
 		</div>
 	</div>
 </div> <!-- /container -->

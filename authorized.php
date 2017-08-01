@@ -24,8 +24,19 @@
 	elseif(isset($_GET["state"]) == 1 && $_GET["state"] ==  $_SESSION['LNK_STATE'] && isset($_GET["code"]) == 1) getAccessKey($_GET, $redirect_uri, $client_id, $client_secret);
 	elseif(isset($_GET["error"])) handleError($_GET);
 	elseif(isset($_GET["logout"])) logout($redirect_uri);
-	elseif(isset($_GET["register"])) registerProfile();
+	elseif(isset($_GET["profile"])) profilePage($_GET["profile"]);
 	elseif($redirPath == "/authorized.php") header('Location:https://'.$redirHost);
+
+	function profilePage($pv)
+	{
+		//$pv is $_GET["profile"]
+		if($_SESSION["LASTPAGE"] == "/community.php" && isset($_SESSION["ACCESS_TOKEN"]) == true)
+		{
+			$_SESSION["PROFDISPLAY"] = $pv;
+		}
+		else header('Location: https://'.$_SERVER['HTTP_HOST']);
+
+	}
 
 	function handleError($errvals)
 	{
@@ -43,7 +54,7 @@
 		$oAuth = intval(trim($values["oauth"]));
 		if($oAuth == 1)
 		{
-			$_SESSION['LNK_STATE'] = stateHash(22);
+			$_SESSION['LNK_STATE'] = stateHash();
 			$oauthurl="https://www.linkedin.com/oauth/v2/authorization?response_type=".$rt;
 			$oauthurl.="&client_id=".$ci;
 			$oauthurl.="&redirect_uri=".$ru;
@@ -233,41 +244,51 @@
 
 	function insertUserInfo($im, $ui)
 	{
-		$dbase = opendb();
-		$iucmd  = "";
+		if(isset($_SESSION["VISITS"]))
+		{
+			if($_SESSION["VISITS"] == 0)
+			{
+				$dbase = opendb();
+				$iucmd  = "";
 	
-		$uid        = mysqli_real_escape_string($dbase, $ui->id);
-		$fName      = mysqli_real_escape_string($dbase, $ui->firstName);
-		$lName      = mysqli_real_escape_string($dbase, $ui->lastName);
-		$headline   = mysqli_real_escape_string($dbase, $ui->headline);
-		$picUrl     = mysqli_real_escape_string($dbase, $ui->pictureUrl);
-		$pubProfUrl = mysqli_real_escape_string($dbase, $ui->publicProfileUrl);
-		$emailAdd   = mysqli_real_escape_string($dbase, $ui->emailAddress);
+				$uid        = mysqli_real_escape_string($dbase, $ui->id);
+				$fName      = mysqli_real_escape_string($dbase, $ui->firstName);
+				$lName      = mysqli_real_escape_string($dbase, $ui->lastName);
+				$headline   = mysqli_real_escape_string($dbase, $ui->headline);
+				$picUrl     = mysqli_real_escape_string($dbase, $ui->pictureUrl);
+				error_log("Here is the PIC URL: ".$picUrl);
+				$pubProfUrl = mysqli_real_escape_string($dbase, $ui->publicProfileUrl);
+				$emailAdd   = mysqli_real_escape_string($dbase, $ui->emailAddress);
 
-		$s = mysqli_real_escape_string($dbase, serialize($ui));
+				$s = mysqli_real_escape_string($dbase, serialize($ui));
 
-		if($im)
-		{
-			$iucmd .= "UPDATE profiles SET ";
-			$iucmd .= "firstName = '".$fName."', ";
-			$iucmd .= "lastName = '".$lName."', ";
-			$iucmd .= "headline = '".$headline."', ";
-			$iucmd .= "pictureUrl = '".$pictureUrl."', ";
-			$iucmd .= "publicProfileUrl = '".$pubProfUrl."', ";
-			$iucmd .= "emailAddress = '".$emailAdd."', ";
-			$iucmd .= "profile = '".$s."' ";
-			$iucmd .= "WHERE id = '".$uid."'";
+				if($im)
+				{
+					$iucmd .= "UPDATE profiles SET ";
+					$iucmd .= "firstName = '".$fName."', ";
+					$iucmd .= "lastName = '".$lName."', ";
+					$iucmd .= "headline = '".$headline."', ";
+					$iucmd .= "pictureUrl = '".$picUrl."', ";
+					$iucmd .= "publicProfileUrl = '".$pubProfUrl."', ";
+					$iucmd .= "emailAddress = '".$emailAdd."', ";
+					$iucmd .= "profile = '".$s."' ";
+					$iucmd .= "WHERE id = '".$uid."'";
+				}
+				else
+				{
+					$iucmd .= "INSERT INTO profiles (id, firstName, lastName, headline, ";
+					$iucmd .= "pictureUrl, publicProfileUrl, emailAddress, profile) ";
+					$iucmd .= "VALUES ('".$uid."', '".$fName."', '".$lName."', '".$headline."', '".$picUrl."', '";
+					$iucmd .= $pubProfUrl."', '".$emailAdd."', '".$s."')";
+				}
+
+				$dbase->query($iucmd);
+			
+				$_SESSION["VISITS"] = 1;
+				$dbase->close();
+			}
+			else error_log("User Profile already updated this session for: ".$ui->firstName." ".$ui->lastName);
 		}
-		else
-		{
-			$iucmd .= "INSERT INTO profiles (id, firstName, lastName, headline, ";
-			$iucmd .= "pictureUrl, publicProfileUrl, emailAddress, profile) ";
-			$iucmd .= "VALUES ('".$uid."', '".$fName."', '".$lName."', '".$headline."', '".$picUrl."', '";
-			$iucmd .= $pubProfUrl."', '".$emailAdd."', '".$s."')";
-		}
-
-		$dbase->query($iucmd);
-		$dbase->close();
 	}
 
 	function removeProfileFromDBI($id)

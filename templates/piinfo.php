@@ -46,7 +46,7 @@
 			$email    = $people_info[$i]["email"];
 
 			$peopleText .= "<div class='well'><table><tr>\n";
-			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><img style='height:160px; text-align:left;' src='".$source."' /><td>\n";
+			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='Image of ".$name."' style='height:160px; text-align:left;' src='".$source."' /><td>\n";
 			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: x-large'>";
 			if($homepage !== null) $peopleText .= "<a href='".$homepage."' target='_blank'>";
 			$peopleText .= $name;
