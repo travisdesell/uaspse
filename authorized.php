@@ -64,7 +64,20 @@
 	{
 		if(isset($_SESSION['ACCESS_TOKEN']))
 		{
-			$cURL = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,public-profile-url,picture-url)?oauth2_access_token=".$_SESSION['ACCESS_TOKEN']."&format=json";
+
+			//$at is access token
+			$authrequrl = "https://api.linkedin.com";
+			$resources  = "/v1/people/~:(id,first-name,last-name,formatted-name,phonetic-first-name,";
+			$resources .= "phonetic-last-name,headline,location,current-share,num-connections,";
+			$resources .= "num-connections-capped,summary,specialties,positions,picture-url,";
+			$resources .= "public-profile-url,email-address)?";
+
+			$params = array(
+				'oauth2_access_token'=>$_SESSION['ACCESS_TOKEN'],
+				'format'=>'json'
+			);
+
+			$authrequrl = $authrequrl.$resources.http_build_query($params);
 			$options = array(
 				'http' => array(
 					'header' => 'Content-Type: application/json',
@@ -72,9 +85,10 @@
 				)
 			);
 			$context = stream_context_create($options);
-			$response = file_get_contents($cURL, false, $context);
+			$response = file_get_contents($authrequrl, false, $context);
+	
 			$_SESSION["USERDATA"] = $response;
-			
+
 			if($response !== null)
 			{
 				return true;
@@ -152,7 +166,7 @@
 
 		$context  = stream_context_create($options);
 		$result = file_get_contents($oaURL, false, $context);
-		if ($result === FALSE) { /* Handle error */ }
+		if ($result === false) { /* Handle error */ }
 
 		$token = json_decode($result);
 		//Temporarily Commenting out JSON Response
@@ -160,7 +174,6 @@
 		$_SESSION["EXPIRES_IN"] = $token->expires_in;
 		$_SESSION["EXPIRES_AT"] = time() + $_SESSION["EXPIRES_IN"];
 		$_SESSION["LOGGEDOUT"] = null;
-//		echo $result;
 		header("Location: ".$_SESSION["LASTPAGE"]);
 		return;
 	}
@@ -179,86 +192,85 @@
 
 	function opendb()
 	{
-		$dbase = mysqli_connect($GLOBALS['dbase_host'], $GLOBALS['dbase_user'], $GLOBALS['dbase_pass'] );
-		$dbf = mysqli_select_db($dbase, $GLOBALS['dbase_name']);
-		$darr = array();
-		$darr[0] = $dbf;
-		$darr[1] = $dbase;
-		return $darr;
-	}
-
-	function closedb($dbase)
-	{
-		mysqli_close($dbase);	
+		$dbase = new mysqli($GLOBALS['dbase_host'], $GLOBALS['dbase_user'], $GLOBALS['dbase_pass']);
+		$dbase->select_db($GLOBALS['dbase_name']);
+		
+		return $dbase;
 	}
 
 	function checkForMembership($userId)
 	{
 		//$userId is the verified id of the current logged in user
-		$darr = opendb();
-		$dbf = $darr[0];
-		$dbase = $darr[1];
+		$dbase = opendb();
 		
 		$idFound = false;
-		if($dbf) 
-		{
-			$cmd = "SELECT id FROM profile";
-			$result = mysqli_query($dbase, $cmd);
-			while($row=mysqli_fetch_assoc($result))
-			{
-				$idFound = in_array($userId, $row);
-				if($idFound == true) break;
-			}
-		}
-		closedb($dbase);
 
+		if($dbase !== false) 
+		{
+			$cmd = "SELECT id FROM profiles WHERE id = '".$userId."'";
+
+			if($result = $dbase->query($cmd))
+			{
+				$row = $result->fetch_row();
+				if($row[0] == $userId) $idFound = true;
+			}
+			else
+			{
+				error_log("Result returned false");
+			}
+			
+		}
+		else
+		{
+			error_log("======================================");
+			error_log("DB NOT OPEN");
+			error_log("======================================");
+		}
+
+		$dbase->close();
 		return $idFound;
 	}
 
-	function idExists($cmd, $id)
+	function insertUserInfo($im, $ui)
 	{
-		$isThere = false;
+		$dbase = opendb();
+		$iucmd  = "";
+	
+		$uid        = mysqli_real_escape_string($dbase, $ui->id);
+		$fName      = mysqli_real_escape_string($dbase, $ui->firstName);
+		$lName      = mysqli_real_escape_string($dbase, $ui->lastName);
+		$headline   = mysqli_real_escape_string($dbase, $ui->headline);
+		$picUrl     = mysqli_real_escape_string($dbase, $ui->pictureUrl);
+		$pubProfUrl = mysqli_real_escape_string($dbase, $ui->publicProfileUrl);
+		$emailAdd   = mysqli_real_escape_string($dbase, $ui->emailAddress);
 
-		return $isThere;
-	}
+		$s = mysqli_real_escape_string($dbase, serialize($ui));
 
-	function registerProfile()
-	{
-		$userText = grabMembershipData(1);
-		$userProf = json_decode($userText);
-		
-		if($userProf !== null)
+		if($im)
 		{
-			$darr = opendb();
-			$dbf = $darr[0];
-			$dbase = $darr[1];
-			if($dbf)
-			{
-				$iucmd  = "INSERT INTO profiles (id, firsName, lastName, headline, summary, pictureUrl, publicProfileUrl, emailAddress, profile) ";
-	
-	
-				$uid = $userProf->id;
-				$fName = $userProf->firstName;
-				$lName = $userProf->lastName;
-				$headline = $userProf->headline;
-				$summary  = $userProf->summary;
-				$picUrl   = $userProf->pictureUrl;
-				$pubProfUrl = $userProf->publicProfileUrl;
-				$emailAdd = $userProf->emailAddress;
-
-				$iuVals = "VALUES ('".$uid."', '".$fName."', '".$lName."', '".$headline."', '".$summary."', '".$picUrl."', '".$pubProfUrl."', '".$emailAdd."', ".$userProfile.")";
-
-				$iucmd .= $iuVals;
-				$dbase->query($iucmd);
-			}
-			closedb($dbase);
+			$iucmd .= "UPDATE profiles SET ";
+			$iucmd .= "firstName = '".$fName."', ";
+			$iucmd .= "lastName = '".$lName."', ";
+			$iucmd .= "headline = '".$headline."', ";
+			$iucmd .= "pictureUrl = '".$pictureUrl."', ";
+			$iucmd .= "publicProfileUrl = '".$pubProfUrl."', ";
+			$iucmd .= "emailAddress = '".$emailAdd."', ";
+			$iucmd .= "profile = '".$s."' ";
+			$iucmd .= "WHERE id = '".$uid."'";
 		}
-		else print($userText);
-		
-		error_log("This is userText: ".$userText, 0);
+		else
+		{
+			$iucmd .= "INSERT INTO profiles (id, firstName, lastName, headline, ";
+			$iucmd .= "pictureUrl, publicProfileUrl, emailAddress, profile) ";
+			$iucmd .= "VALUES ('".$uid."', '".$fName."', '".$lName."', '".$headline."', '".$picUrl."', '";
+			$iucmd .= $pubProfUrl."', '".$emailAdd."', '".$s."')";
+		}
+
+		$dbase->query($iucmd);
+		$dbase->close();
 	}
 
-	function unRegisterProfile()
+	function removeProfileFromDBI($id)
 	{
 	}
 ?>
