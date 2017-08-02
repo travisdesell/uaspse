@@ -16,12 +16,12 @@
 		$isMember  = checkForMembership($userId);
 		insertUserInfo($isMember, $userData);
 		
-		$hasUser  = "<div id='user-details' style='text-align: center;'>";
+		$hasUser  = "<div id='".$userId."' style='text-align: center;'>";
 		$hasUser .= "<img 'Linkedin.com User Profile Image' style='padding-bottom: 10px' src='".$userImage."' />";
 		
 		$hasUser .= "<p>";
 			
-		$hasUser .= "<a href='/community.php?profile=".$userId."'";
+		$hasUser .= "<a href='javascript: getProfile(\"".$userId."\");'";
 		$hasUser .= "style='border-radius: 2px;";
 		$hasUser .= "background-color: #11ad40; font-weight: bold;";
 		$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 2px 5px;'>";

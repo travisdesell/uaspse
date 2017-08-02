@@ -29,13 +29,28 @@
 
 	function profilePage($pv)
 	{
-		//$pv is $_GET["profile"]
-		if($_SESSION["LASTPAGE"] == "/community.php" && isset($_SESSION["ACCESS_TOKEN"]) == true)
-		{
-			$_SESSION["PROFDISPLAY"] = $pv;
-		}
-		else header('Location: https://'.$_SERVER['HTTP_HOST']);
+		$json = '{"error":"not_authenticated","hasError":false}';
 
+		//$pv is $_GET["profile"]
+		if($_SERVER["PHP_SELF"] == "/community.php" && isset($_SESSION["ACCESS_TOKEN"]) == true)
+		{
+			$dbase = opendb();
+			if($dbase)
+			{
+				$cmd = "SELECT * FROM profiles WHERE id = '".$pv."'";
+				if($result = $dbase->query($cmd))
+				{
+					$row  = $result->fetch_object();
+					$prof = unserialize($row->profile);
+					$json = json_encode($prof);
+				} else $json = '{"error":"database_no_data_found","hasError":false}';
+				$dbase->close();
+			}
+			else $json = '{"error":"database_conn_failure","hasError":false}';
+		}
+
+		echo $json;
+		exit();
 	}
 
 	function handleError($errvals)
