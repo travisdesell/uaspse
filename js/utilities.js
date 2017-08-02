@@ -57,7 +57,7 @@ function getProfile(ui)
 					if(document.getElementById(cid) != null)
 					{
 					    html += "<p style='font-weight: bold; font-size: medium; text-align: right;'>";
-					    html += "<a href='https://" + window.location.host + "/?delete=" + data.id + "'>Delete UASPSE Account</a></p>";
+					    html += "<a href='https://" + window.location.host + "/?remove=" + data.id + "'>Remove UASPSE Account</a></p>";
 					}
 
 					html += "</td></tr></table>";

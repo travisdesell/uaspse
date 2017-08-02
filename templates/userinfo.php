@@ -6,39 +6,45 @@
 //		error_log($_SESSION["USERDATA"]);
 		$userData  = json_decode($_SESSION["USERDATA"]);
 //		echo $_SESSION["USERDATA"];
-		$userImage = $userData->pictureUrl;
-		$firstname = $userData->firstName;
-		$lastname  = $userData->lastName;
-		$profLink  = $userData->publicProfileUrl; 
-		$headline  = $userData->headline;
-		$userId    = $userData->id;
+//		if($userImage !== null)
+//		{
+			$userImage = $userData->pictureUrl;
+			$firstname = $userData->firstName;
+			$lastname  = $userData->lastName;
+			$profLink  = $userData->publicProfileUrl; 
+			$headline  = $userData->headline;
+			$userId    = $userData->id;
 
-		$isMember  = checkForMembership($userId);
-		insertUserInfo($isMember, $userData);
+			$isMember  = checkForMembership($userId);
+			insertUserInfo($isMember, $userData);
 		
-		$hasUser  = "<div id='".$userId."' style='text-align: center;'>";
-		$hasUser .= "<img 'Linkedin.com User Profile Image' style='padding-bottom: 10px' src='".$userImage."' />";
+			$hasUser  = "<div id='".$userId."' style='text-align: center;'>";
+			$hasUser .= "<img 'Linkedin.com User Profile Image' style='padding-bottom: 10px' src='".$userImage."' />";
 		
-		$hasUser .= "<p>";
+			$hasUser .= "<p>";
 			
-		$hasUser .= "<a href='javascript: getProfile(\"".$userId."\");'";
-		$hasUser .= "style='border-radius: 2px;";
-		$hasUser .= "background-color: #11ad40; font-weight: bold;";
-		$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 2px 5px;'>";
-		$hasUser .= "Display Member Profile</a>";
+			$hasUser .= "<a href='javascript: getProfile(\"".$userId."\");'";
+			$hasUser .= "style='border-radius: 2px;";
+			$hasUser .= "background-color: #11ad40; font-weight: bold;";
+			$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 2px 5px;'>";
+			$hasUser .= "Display Member Profile</a>";
 
-		$hasUser .= "</p>";
+			$hasUser .= "</p>";
 
-		$hasUser .= "<p><a style='font-weight: bold;' href='".$profLink."' ";
-		$hasUser .= "target='_blank'>".$firstname." ".$lastname."</a><br>";
+			$hasUser .= "<p><a style='font-weight: bold;' href='".$profLink."' ";
+			$hasUser .= "target='_blank'>".$firstname." ".$lastname."</a><br>";
 
-		$hasUser .= $headline."</p><img alt='Linkedin.com Logo' src='img/in14.png' />&nbsp;<a href='?logout=1' ";
-		$hasUser .= "style='text-decoration: none; border-radius: 2px; ";
-		$hasUser .= "background-color: #0077B5; font-weight: bold; ";
-		$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 1px 1px;'>";
-		$hasUser .= "Sign out of LinkedIn&nbsp;</a></div>";
+			$hasUser .= $headline."</p><img alt='Linkedin.com Logo' src='img/in14.png' />&nbsp;<a href='?logout=1' ";
+			$hasUser .= "style='text-decoration: none; border-radius: 2px; ";
+			$hasUser .= "background-color: #0077B5; font-weight: bold; ";
+			$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 1px 1px;'>";
+			$hasUser .= "Sign out of LinkedIn&nbsp;</a></div>";
 
-		echo $hasUser;
+			echo $hasUser;
+//		}
+//		else
+//		{
+//		}
 	}
 	else
 	{
