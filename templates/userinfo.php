@@ -1,4 +1,8 @@
 <?php
+
+	echo "<div class='col-lg-2 col-md-2 col-sm-2'>";
+	echo "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a9cff2;'>UASPSE Account</p>";
+	echo "<div class='well'>";
 	$hasUserInfo = false;
 	if($isAuthorized == true && $_SESSION["USERDATA"] !== null && isset($_SESSION["USERDATA"]) == true) $hasUserInfo = true;
 	if($hasUserInfo)
@@ -62,4 +66,7 @@
 
 		echo $noUser;
 	}
+	echo "</div>";
+	require("templates/agfacts.php");
+	echo "</div>";
 ?>

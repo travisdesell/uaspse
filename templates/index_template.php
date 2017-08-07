@@ -1,14 +1,9 @@
 <!-- Main component for a primary marketing message or call to action -->
 <div id='content' class='container-fluid'>
   <div class="row">
-    <div class='col-lg-2'>
-	<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a9cff2;'>UASPSE Account</p>
-        <div class="well">
-		<?php
-			require("templates/userinfo.php");
-		?>
-        </div>
-    </div>
+    <?php
+	require("templates/userinfo.php");
+    ?>
     <div class="col-lg-4">
       <p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a9cff2;'>UASPSE News</p>
       <div class="well">
