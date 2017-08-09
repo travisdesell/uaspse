@@ -15,6 +15,7 @@
 		Also includes the stateHash function.
 	*/
 	require_once("/var/www/html/php_scripts/basicdata.php");
+	require_once("/var/www/html/php_scripts/logout.php");
 
 	$redirHost =  $_SERVER['HTTP_HOST'];
 	$redirPath =  parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);  
@@ -25,7 +26,42 @@
 	elseif(isset($_GET["error"])) handleError($_GET);
 	elseif(isset($_GET["logout"])) logout($redirect_uri);
 	elseif(isset($_GET["profile"])) profilePage($_GET["profile"]);
+	elseif(isset($_GET["list"])) listAllProfiles($_GET["list"]);
+	elseif(isset($_GET["remove"])) removeProfile($_GET["remove"]);
 	elseif($redirPath == "/authorized.php") header('Location:https://'.$redirHost);
+
+
+	function listAllProfiles($lst)
+	{
+		$json = '{"error":"not_authenticated","hasError":false}';
+
+		//$pv is $_GET["profile"]
+		if($_SERVER["PHP_SELF"] == "/community.php" && isset($_SESSION["ACCESS_TOKEN"]) == true)
+		{
+			$dbase = opendb();
+			if($dbase)
+			{
+				$allProfs = array();
+				$cmd = "SELECT * FROM profiles";
+				if($result = $dbase->query($cmd))
+				{
+					$tnum = $result->num_rows;
+					for($i=0; $i<$tnum; $i++)
+					{
+						$row  = $result->fetch_object();
+						$allProfs[$i] = unserialize($row->profile);
+					}
+					$json = json_encode($allProfs);
+				} else $json = '{"error":"database_no_data_found","hasError":false}';
+	
+				$dbase->close();
+			}
+			else $json = '{"error":"database_conn_failure","hasError":false}';
+		}
+
+		echo $json;
+		exit();
+	}
 
 	function profilePage($pv)
 	{
@@ -51,6 +87,28 @@
 
 		echo $json;
 		exit();
+	}
+
+	function removeProfile($mid)
+	{
+		$hasUserInfo = false;
+		$isa = checkAuthorized();
+		if($isa == true && $_SESSION["USERDATA"] !== null && isset($_SESSION["USERDATA"]) == true) $hasUserInfo = true;
+		if($hasUserInfo == true)
+        	{
+			$userData = json_decode($_SESSION["USERDATA"]);
+			if( $mid == $userData->id)
+			{
+				$dbase = opendb();
+				if($dbase)
+				{
+					$sql="DELETE FROM profiles WHERE id='".$mid."'";
+					$dbase->query($sql);
+					$dbase->close();
+					logout($_SESSION["LASTPAGE"]);
+				}
+			}
+		}
 	}
 
 	function handleError($errvals)
@@ -203,7 +261,7 @@
 		header("Location: ".$_SESSION["LASTPAGE"]);
 		return;
 	}
-
+/*
 	function logout($ru)
 	{
 		$_SESSION = array();
@@ -215,7 +273,7 @@
 		session_destroy();
 		header("Location: https://www.linkedin.com/m/logout");
 	}
-
+*/
 	function opendb()
 	{
 		$dbase = new mysqli($GLOBALS['dbase_host'], $GLOBALS['dbase_user'], $GLOBALS['dbase_pass']);

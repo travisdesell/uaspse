@@ -32,11 +32,11 @@
 
 	echo "<li".$arr[0]."><a href='/index.php'>Home</a></li>";
 	echo "<li".$arr[1]."><a href='/people.php'>People</a></li>";
-	if($isAuthorized)
-	{
+//	if($isAuthorized)
+//	{
 		echo "<li".$arr[2]."><a href='community.php'>Community</a></li>";
 		echo "<li".$arr[3]."><a href='resources.php'>Resources</a></li>";
-	}
+//	}
 ?>
             </ul>
         </div><!--/.nav-collapse -->

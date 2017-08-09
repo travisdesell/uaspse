@@ -11,7 +11,7 @@
  		<div class="modal-content">
 	 		<div class="modal-header">
  				<button type="button" class="close" data-dismiss="modal">&times;</button>
- 				<h4 class="modal-title"><img alt='Digital Agriculture: Unmanned Aircraft Systems, Plant Sciences, and Educaiton - Project Logo' src='img/uaspse-48-nob.png' /> UASPSE - Membership Profile</h4>
+ 				<h4 class="modal-title"><img alt='Digital Agriculture: Unmanned Aircraft Systems, Plant Sciences, and Educaiton - Project Logo' src='img/uaspse-48-nob.png' /> <span id='uaspse_title'>UASPSE - Membership Profile</span></h4>
 			</div>
  			<div class="modal-body" id="pdiv">
  			</div>

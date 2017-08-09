@@ -1,4 +1,4 @@
-<div id='content' style="padding-top: 20px;" class="container-fluid">
+<div id='content' class="container-fluid">
 	<div class="row">
 		<?php
 			require("templates/userinfo.php");

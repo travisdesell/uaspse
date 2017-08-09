@@ -1,5 +1,5 @@
 <?php
-	echo "<div class='col-lg-4' col-md-4 col-sm-4>";
+	echo "<div class='col-lg-4 col-md-4 col-sm-4'>";
 	echo "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; ";
 	echo "background-color: #a9cff2;'>Advisory Committee</p>";
 

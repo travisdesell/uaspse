@@ -88,24 +88,29 @@
 					$html .= "				</table>";
 					$html .= "			</div>";
 				}
-				$html .= "		</td><td style='width: 30px;'></td></tr></table></div>";
+				$html .= "		</td><td style='width: 30px;'></td></tr></table></div></div>";
+				echo $html;
 			}
-			
-			$html .= "</div>";
-			
-			echo $html;
+			else
+			{
+				$html = "</div>";
+				echo $html;
+			}
 
-			$html  = "	<a class='left carousel-control' style='width: 30px;' href='#profCarousel' data-slide='prev'>";
-			$html .= "	<span class='glyphicon glyphicon-chevron-left'></span>";
-			$html .= "	<span class='sr-only'>Previous</span>";
-			$html .= "	</a>";
+//			if($tnum > 3)
+//			{
+				$html  = "	<a class='left carousel-control' style='width: 30px;' href='#profCarousel' data-slide='prev'>";
+				$html .= "	<span class='glyphicon glyphicon-chevron-left'></span>";
+				$html .= "	<span class='sr-only'>Previous</span>";
+				$html .= "	</a>";
 
-			$html .= "	<a class='right carousel-control' style='width: 30px;' href='#profCarousel' data-slide='next'>";
-			$html .= "	<span class='glyphicon glyphicon-chevron-right'></span>";
-			$html .= "	<span class='sr-only'>Next</span>";
-			$html .= "	</a>";
+				$html .= "	<a class='right carousel-control' style='width: 30px;' href='#profCarousel' data-slide='next'>";
+				$html .= "	<span class='glyphicon glyphicon-chevron-right'></span>";
+				$html .= "	<span class='sr-only'>Next</span>";
+				$html .= "	</a>";
 			
-			echo $html;
+				echo $html;
+//			}
 		}
 		else echo "<div class='well'><p>Error: Database not available!</a></div>";
 		$dbase->close();

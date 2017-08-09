@@ -6,7 +6,7 @@
 		$people_info[0] = array(
 			'name' => 'Jennifer Clarke',
 			'source' => 'img/jennifer_clarke_80.jpg',
-			'bio' => ' Jennifer Clarke, Ph.D., Associate Professor of Food Science of Statistics and Food Science and Technology, Research Assistant Professor in Data Science at the University of Nebraska, B.A., Psychology, Skidmore College; B.A., Mathematics, Skidmore College; M.S., Statistics, Carnegie Mellon University, Ph. D., Statistics, The Pennsylvania State University. Dr. Clarke’s research interests encompass statistical methodology (with an emphasis on high dimensional and predictive methods), statistical computation, bioinformatics/computational biology, multi-type data analysis, data mining/machine learning, and bacterial genomics/metagenomics.',
+			'bio' => ' Jennifer Clarke, Ph.D., Associate Professor of Food Science and Technology, Research Assistant Professor in Data Science at the University of Nebraska, B.A., Psychology, Skidmore College; B.A., Mathematics, Skidmore College; M.S., Statistics, Carnegie Mellon University, Ph. D., Statistics, The Pennsylvania State University. Dr. Clarke’s research interests encompass statistical methodology (with an emphasis on high dimensional and predictive methods), statistical computation, bioinformatics/computational biology, multi-type data analysis, data mining/machine learning, and bacterial genomics/metagenomics.',
             'homepage' => 'http://bigdata.unl.edu/about',
             'email' => 'jclarke3@unl.edu',
 	    'headline' => 'Assoc. Professor of Food Science & Technology, Univ. of Nebraska - Lincoln'
@@ -43,12 +43,94 @@
 		$people_info[4] = array(
 			'name' => 'Grant McGimpsey',
 			'source' => 'img/grant_mcgimpsey_80.jpg',
-			'headline' => 'Vice President for Research & Economic Development at Univ. of North Dakota'
+			'headline' => 'Vice President for Research & Economic Development at Univ. of North Dakota',
+			'bio' => '',
+			'email' => '',
+			'homepage' => ''
 		);
 
-		$peopleText   = "<div class='col-lg-4' col-md-4 col-sm-4>";
+		$peopleText   = "<div class='col-lg-4 col-md-4 col-sm-4'>";
 		$peopleText  .= "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; ";
 		$peopleText  .= "background-color: #a9cff2;'>Principle Investigators</p>";
+	
+		$peopleText .= "<script type='text/javascript'>";
+
+		$peopleText .= "function getBio(num)";
+		$peopleText .= "{";
+		$peopleText .= "var html  = \"<div class='well'>\";";
+
+		$peopleText .= "html += \"<table><tr>\";";
+		$peopleText .= "html += \"<td style='vertical-align: top; padding-top: 5px; padding-left: 5px; \";";
+		$peopleText .= "html += \"padding-bottom: 5px; padding-right: 10px; text-align: left;'><img alt='Image of \";";
+		$peopleText .= "html += pArry[num][0]+ \"' style='height:80px; text-align:left;' src='\" + pArry[num][1] + \"' />\";";
+		$peopleText .= "html += \"<p style='text-align: center; font-weight: bold; font-size: small; \";";
+		$peopleText .= "html += \"padding-top: 5px;'><a href='mailto:\" + pArry[num][4] + \"'>Send Email</a></p></td>\";";
+		$peopleText .= "html += \"<td style='vertical-align: top; padding: 5px; text-align: left;'>\";";
+		$peopleText .= "html += \"<p style='font-weight: bold; margin-bottom: 0px;'><span style='font-size: x-large'>\";";
+		$peopleText .= "html += pArry[num][0] + \"</span>\";";
+		$peopleText .= "html += \"<span style='font-size: medium'> - <a href='\";";
+		$peopleText .= "html += pArry[num][3] + \"' target='_pis'>Website</a></span></p>\";";
+		$peopleText .= "html += \"<p style='font-weight: bold; font-size: medium'>\" + pArry[num][5] + \"</p>\";";
+		$peopleText .= "html += \"<p style='font-weight: bold; margin-bottom: 0px;'>Biography</p> <p \";";
+		$peopleText .= "html += \"style='font-size: small;'>\" + pArry[num][2] + \"</div></p>\";";
+
+		$peopleText .= "html += \"</td></tr></table>\";";
+
+		$peopleText .= "html += \"</div>\";";
+		$peopleText .= "var pdiv = document.getElementById('pdiv');";
+		$peopleText .= "var tspn = document.getElementById('uaspse_title');";
+		$peopleText .= "tspn.innerHTML = 'Principle Investigator';";
+		$peopleText .= "pdiv.innerHTML = html;";
+		$peopleText .= "$('#profModal').modal({show:false});";
+		$peopleText .= "$('#profModal').modal('show');";
+		$peopleText .= "}";
+
+
+
+
+		$peopleText .= "var pArry = [];";
+		$peopleText .= "pArry[0] = [];";
+		$peopleText .= "pArry[1] = [];";
+		$peopleText .= "pArry[2] = [];";
+		$peopleText .= "pArry[3] = [];";
+		$peopleText .= "pArry[4] = [];";
+
+		$peopleText .= "pArry[0][0] = '".$people_info[0]["name"]."';";
+		$peopleText .= "pArry[0][1] = '".$people_info[0]["source"]."';";
+		$peopleText .= "pArry[0][2] = '".$people_info[0]["bio"]."';";
+		$peopleText .= "pArry[0][3] = '".$people_info[0]["homepage"]."';";
+		$peopleText .= "pArry[0][4] = '".$people_info[0]["email"]."';";
+		$peopleText .= "pArry[0][5] = '".$people_info[0]["headline"]."';";
+
+		$peopleText .= "pArry[1][0] = '".$people_info[1]["name"]."';";
+		$peopleText .= "pArry[1][1] = '".$people_info[1]["source"]."';";
+		$peopleText .= "pArry[1][2] = '".$people_info[1]["bio"]."';";
+		$peopleText .= "pArry[1][3] = '".$people_info[1]["homepage"]."';";
+		$peopleText .= "pArry[1][4] = '".$people_info[1]["email"]."';";
+		$peopleText .= "pArry[1][5] = '".$people_info[1]["headline"]."';";
+
+		$peopleText .= "pArry[2][0] = '".$people_info[2]["name"]."';";
+		$peopleText .= "pArry[2][1] = '".$people_info[2]["source"]."';";
+		$peopleText .= "pArry[2][2] = '".$people_info[2]["bio"]."';";
+		$peopleText .= "pArry[2][3] = '".$people_info[2]["homepage"]."';";
+		$peopleText .= "pArry[2][4] = '".$people_info[2]["email"]."';";
+		$peopleText .= "pArry[2][5] = '".$people_info[2]["headline"]."';";
+
+		$peopleText .= "pArry[3][0] = '".$people_info[3]["name"]."';";
+		$peopleText .= "pArry[3][1] = '".$people_info[3]["source"]."';";
+		$peopleText .= "pArry[3][2] = '".$people_info[3]["bio"]."';";
+		$peopleText .= "pArry[3][3] = '".$people_info[3]["homepage"]."';";
+		$peopleText .= "pArry[3][4] = '".$people_info[3]["email"]."';";
+		$peopleText .= "pArry[3][5] = '".$people_info[3]["headline"]."';";
+
+		$peopleText .= "pArry[4][0] = '".$people_info[4]["name"]."';";
+		$peopleText .= "pArry[4][1] = '".$people_info[4]["source"]."';";
+		$peopleText .= "pArry[4][2] = '".$people_info[4]["bio"]."';";
+		$peopleText .= "pArry[4][3] = '".$people_info[4]["homepage"]."';";
+		$peopleText .= "pArry[4][4] = '".$people_info[4]["email"]."';";
+		$peopleText .= "pArry[4][5] = '".$people_info[4]["headline"]."';";
+
+		$peopleText .= "</script>";
 		for($i=0; $i<5; $i++)
 		{
 			$name     = $people_info[$i]["name"];
@@ -62,7 +144,7 @@
 			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='Image of ".$name."' ";
 			$peopleText .= "style='height:48px; width: 48px; text-align:left;' src='".$source."' /><td>";
 			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>".$name;
-			$peopleText .= ", Ph.D. - <a href='getBio(\"".$name."\")' target='_blank'>View Bio</a><br></span>";
+			$peopleText .= ", Ph.D. - <a href='javascript: getBio(\"".$i."\");'>View Bio</a><br></span>";
 			$peopleText .= "<span style='font-weight: bold; font-size: small;'>".$headline."</span></p></td>";
 			$peopleText .= "</table></div>";
 		}
