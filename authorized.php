@@ -36,13 +36,13 @@
 		$json = '{"error":"not_authenticated","hasError":false}';
 
 		//$pv is $_GET["profile"]
-		if($_SERVER["PHP_SELF"] == "/community.php" && isset($_SESSION["ACCESS_TOKEN"]) == true)
+		if($_SERVER["PHP_SELF"] == "/community.php" && $lst == 1 && isset($_SESSION["ACCESS_TOKEN"]) == true)
 		{
 			$dbase = opendb();
 			if($dbase)
 			{
 				$allProfs = array();
-				$cmd = "SELECT * FROM profiles";
+				$cmd = "SELECT * FROM profiles ORDER by lastName ASC";
 				if($result = $dbase->query($cmd))
 				{
 					$tnum = $result->num_rows;

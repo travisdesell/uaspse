@@ -43,8 +43,8 @@ function listAllMembers()
 	{
 		if(this.readyState == 4 && this.status == 200)
 		{
-			var pdiv = document.getElementById("pdiv");
-			var tspn = document.getElementById("uaspse_title");
+			var pdiv = document.getElementById("swpdiv");
+			var tspn = document.getElementById("swuaspse_title");
 			
 
 
@@ -54,21 +54,21 @@ function listAllMembers()
 				
 			if(data.hasError == null)
 			{
-				var html = "";
+				var html = "<div style='height: 400px; overflow: auto; margin: 0px; padding: 0px;'>";
 				for(i=0;i<data.length;i++)
 				{
 					html += "<p style='font-weight: bold;'><img alt='Image of ";
 					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + data[i].pictureUrl + "' /> ";
-					html += data[i].firstName + " " + data[i].lastName + " - <a href='" + data[i].publicProfileUrl + "' target='linkedin'>View LinkedIn Profile</a></p>";
+					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
 				}
-				pdiv.innerHTML = html;
+				pdiv.innerHTML = html + "</div>";
 			}
 			else
 			{
 				pdiv.innerHTML = "<p>Sorry, you must be logged into your UASPSE Member account in order to view the entire UASPSE Member list.<p>";
 			}
-			$('#profModal').modal({show:false});
-			$('#profModal').modal('show');
+			$('#swModal').modal({show:false});
+			$('#swModal').modal('show');
 		}
 	};
 
@@ -77,7 +77,18 @@ function listAllMembers()
 	xhttp.open("GET", ajaxURL, true);
 	xhttp.send();
 }
-	
+
+function closeGetProfile(ui)
+{
+	$('#swModal').on('hidden', getProfile(ui));
+	$('#swModal').modal('hide');
+}
+
+function clearBodyPadding()
+{
+	document.body.style.paddingRight = '0px';
+}
+
 function getProfile(ui)
 {
 
@@ -147,6 +158,7 @@ function getProfile(ui)
 	
 					tspn.innerHTML = "UASPSE Member Profile";
 					pdiv.innerHTML = html;
+					$('#profModal').on('hidden', clearBodyPadding());
 					$('#profModal').modal({show:false});
 					$('#profModal').modal('show');
 				}
@@ -155,6 +167,7 @@ function getProfile(ui)
 
 					tspn.innerHTML = "UASPSE Member Profile - Error";
 					pdiv.innerHTML = "<p>Sorry, you must be logged into your UASPSE Member account in order to view UASPSE Member profiles.<p>";
+					$('#profModal').on('hidden', clearBodyPadding());
 					$('#profModal').modal({show:false});
 					$('#profModal').modal('show');
 				}

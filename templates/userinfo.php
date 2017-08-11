@@ -1,7 +1,8 @@
 <?php
 
-	echo "<div class='col-lg-2 col-md-2 col-sm-2'>";
-	echo "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a9cff2;'>UASPSE Member Account</p>";
+	echo "<div class='col-sm-3'>";
+	require("templates/agfacts.php");
+	echo "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Member Account</p>";
 	echo "<div class='well'>";
 	$hasUserInfo = false;
 	if($isAuthorized == true && $_SESSION["USERDATA"] !== null && isset($_SESSION["USERDATA"]) == true) $hasUserInfo = true;
@@ -63,7 +64,7 @@
 
 		$noUserImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
 
-		$noUser      = "<div style='text-align: center;'><img alt='No User Profile Image Available' style='padding-bottom: 10px;' src='".$noUserImage;
+		$noUser      = "<div style='text-align: center; height: 205px;'><img alt='No User Profile Image Available' style='padding-bottom: 10px;' src='".$noUserImage;
 		$noUser     .= "' /><p style='font-weight: bold;'>Sign-in using LinkedIn<br>to access<br>UASPSE Community</p>";
 		$noUser     .= "<img alt='Linkedin.com Logo' src='img/in14.png' />&nbsp;<a href='javascript: preLoginInfo();' ";
                 $noUser     .= "style='border-radius: 2px; ";
@@ -74,6 +75,5 @@
 		echo $noUser;
 	}
 	echo "</div>";
-	require("templates/agfacts.php");
 	echo "</div>";
 ?>
