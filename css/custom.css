@@ -1,8 +1,8 @@
 .jumbotron {
-    background-image: url("../img/big_data.png");
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url("../img/uas_header.jpg");
+    background-position: left bottom;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .transparent-well {

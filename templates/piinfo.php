@@ -49,10 +49,12 @@
 			'homepage' => ''
 		);
 
-		$peopleText   = "<div class='col-lg-4 col-md-4 col-sm-4'>";
+		$peopleText   = "<div class='col-sm-4'>";
 		$peopleText  .= "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; ";
-		$peopleText  .= "background-color: #a9cff2;'>Principle Investigators</p>";
+		$peopleText  .= "background-color: #a1d6a0;'>Principle Investigators</p>";
 	
+		$peopleText .= "<div style='padding: 2px; height: 340px; width: 100%; overflow: auto; border-radius: 5px; ";
+		$peopleText .= "border-width: 1px; border-color: #DDDDDD; border-style: solid;'>";
 		$peopleText .= "<script type='text/javascript'>";
 
 		$peopleText .= "function getBio(num)";
@@ -94,6 +96,8 @@
 		$peopleText .= "pArry[2] = [];";
 		$peopleText .= "pArry[3] = [];";
 		$peopleText .= "pArry[4] = [];";
+
+		shuffle($people_info);
 
 		$peopleText .= "pArry[0][0] = '".$people_info[0]["name"]."';";
 		$peopleText .= "pArry[0][1] = '".$people_info[0]["source"]."';";
@@ -149,7 +153,7 @@
 			$peopleText .= "</table></div>";
 		}
 
-		$peopleText .= "</div>";
+		$peopleText .= "</div></div>";
 		return $peopleText;
 	}
 ?>

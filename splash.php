@@ -1,15 +1,11 @@
-      <div class="jumbotron">
+      <div class="jumbotron" style="margin-bottom: 10px; padding: 0px; border-style: double none double none; border-width: 5px; border-color: #45ad43;">
         <div class="row">
-          <div class="col-xs-12">
-            <div class="well transparent-well">
-              <h2 style='color: #FFFFFF;'>NSF BDSPOKES: Unmanned Aerial Systems, Plant Sciences and Education</h2>
-              <p style='color: #FFFFFF;'>The UASPSE NSF Big Data Hubs Spoke Project aims to 
-                     contribute in solving sustainable global food security by coordinating 
-                     efforts by the academic, industrial, and governmental sectors to automate 
-                     Big Data lifecycles, improve access to data assets, and train individuals with 
-                     relevant skills and expertise.
-              </p>
-            </div> <!-- well transparent-well -->
+          <div class="col-xs-12" style="height: 300px;">
+		<div style='position: absolute; left: 20px; bottom: 0px; right: 0px; padding: 0px; margin: 0px'>
+			<div style='position: absolute; bottom: 5px; right: 20px;  padding: 2px;'>
+				<p style='margin: 0px; color: #FFFFFF; text-shadow: 1px 1px 2px #000000;'>NSF BDSPOKES - Digital Agriculture: Unmanned Aerial Systems, Plant Sciences and Education</p>
+			</div>
+		</div>
           </div> <!-- col-xs-8 -->
         </div> <!-- row -->
       </div> <!-- jumbotron -->
