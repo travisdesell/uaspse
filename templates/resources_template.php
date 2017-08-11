@@ -75,15 +75,13 @@
 								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
 							</td>
 							<td style='padding: 5px; vertical-align: top; align: left;'>
-								<p><span style='font-weight: bold'>UASPSE Education Resource #1</span><br>
-								Put some text here.
-								<span style="font-weight: bold">[ <a href="/" 
-								target="digiag">LINK to Resource #1</a> ]</span></p>
+								<p><span style='font-weight: bold'>Education Programs</span><br>
+								Comming Soon!</p>
 							</td>
 						</tr>
 					</table>
 				</div>
-
+<!--
 				<div style='margin-top: 0px; margin-bottom: 5px;'>
 					<table>
 						<tr>
@@ -116,7 +114,7 @@
 					</table>
 				</div>
 
-
+	-->
 			
 			</div>
 		</div>
