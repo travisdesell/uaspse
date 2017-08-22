@@ -20,7 +20,7 @@
 								Digital Agriculture is one of 9 thematic communities under the Midwest Big Data Hub (MBDH).
 								The MBDH is a growing network of partners investing in data and data sciences to address 
 								grand challenges for society and science. Anyone is welcome to join these efforts. 
-								<span style="font-weight: bold">[ <a href="https://digital.ag.iastate.edu/" 
+								<br><span style="font-weight: bold">[ <a href="https://digital.ag.iastate.edu/" 
 								target="digiag">MBDH DigiAg Spoke</a> ]</span></p>
 							</td>
 						</tr>
@@ -41,7 +41,7 @@
 								rapidly growing and increasingly complex data and information collections 
 								to create actionable knowledge and guide decision-making. MBDH will capture 
 								special opportunities, interests, and resources unique to the Midwest.
-								<span style="font-weight: bold">[ <a href="http://www.midwestbigdatahub.org/" 
+								<br><span style="font-weight: bold">[ <a href="http://www.midwestbigdatahub.org/" 
 								target="mbdh">MBDH Website</a> ]</span></p>
 							</td>
 						</tr>
@@ -59,7 +59,7 @@
 								The Citizen Science Grid is run by PI Desell, and is hosted by UND's Computational Research Center. 
 								The Citizen Science Grid is dedicated to supporting a wide range of research and educational 
 								projects using volunteer computing and citizen science. This computing infrastructure is available
-								for use by the UASPSE community. <span style="font-weight: bold">[ <a href="https://CSGrid.Org/csg" 
+								for use by the UASPSE community.<br><span style="font-weight: bold">[ <a href="https://CSGrid.Org/csg" 
 								target="csg">CSGrid.Org</a> ]</span></p>
 							</td>
 						</tr>
