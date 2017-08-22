@@ -75,8 +75,9 @@
 								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
 							</td>
 							<td style='padding: 5px; vertical-align: top; align: left;'>
-								<p><span style='font-weight: bold'>Education Programs</span><br>
-								Comming Soon!</p>
+								<p><span style='font-weight: bold'>Plant Phenomics Phridays</span><br>
+								<a href='https://digital.ag.iastate.edu/isu-plant-phenomics-phridays-seminar-series' 
+								target='edu_resources'>Iowa State University Seminar Series on Plant Phenomics</a></p>
 							</td>
 						</tr>
 					</table>
