@@ -7,8 +7,8 @@
 
 	echo "<div class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>Digital Ag Fact</div>";
 	echo "<div class='well' style='padding: 5px; height: 60px; margin-bottom: 7px;overflow: auto;'>";
-	echo "<marquee><p id='agfact'>";
+	echo "<p id='agfact'>";
 	echo $marq[rand(0,count($marq)-1)];
-	echo "</p></marquee>";
+	echo "</p>";
     echo "</div>";
 ?>
