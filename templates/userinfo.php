@@ -3,7 +3,7 @@
 	echo "<div class='col-sm-3'>";
 	require("templates/agfacts.php");
 	echo "<p class='well' style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Member Account</p>";
-	echo "<div class='well'>";
+	echo "<div class='well' style='margin-bottom: 7px;'>";
 	$hasUserInfo = false;
 	if($isAuthorized == true && $_SESSION["USERDATA"] !== null && isset($_SESSION["USERDATA"]) == true) $hasUserInfo = true;
 	if($hasUserInfo)

@@ -46,7 +46,7 @@
 				$members[$m] .= "<img alt='Image of ".$row->firstName." ".$row->lastName;
 				$members[$m] .= "' style='height:40px; width:40px; text-align:left;' src='".$row->pictureUrl."' /></td>";
 				$members[$m] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'>";
-				$members[$m] .= "<p style='font-weight: bold; font-size: medium; margin-bottom: 0px;'>".$row->firstName." ".$row->lastName;
+				$members[$m] .= "<p style='font-weight: bold; font-size: small; margin-bottom: 0px;'>".$row->firstName." ".$row->lastName;
 				$members[$m] .= " - <a href='javascript: getProfile(\"".$row->id."\");'>View Profile</a></p>\n";
 				$members[$m] .= "<p style='font-weight: bold; font-size: x-small; margin-bottom: 0px;'>".$row->headline."</p>";
 				$members[$m] .= "</td></tr></table></div>";
@@ -76,7 +76,7 @@
 					$items[$m] .= "style='height:40px; width:40px; text-align:left;' ";
 					$items[$m] .= "src='https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png' />";
 					$items[$m] .= "</td><td style='vertical-align: top; padding: 5px; text-align: left;'>";
-					$items[$m] .= "<p style='font-weight: bold; font-size: medium; margin-bottom: 0px;'>New Members Wanted!</p>";
+					$items[$m] .= "<p style='font-weight: bold; font-size: small; margin-bottom: 0px;'>New Members Wanted!</p>";
 					$items[$m] .= "<p style='font-weight: bold; font-size: x-small; margin-bottom: 0px;'>";
 					$items[$m] .= "<a href='javascript: preLoginInfo();'>Join using your LinkedIn acount.</a></p>";
 					$items[$m] .= "</td></tr></table></div>";
