@@ -37,10 +37,12 @@
     <div class="col-sm-4">
       <p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE News</p>
       <div class="well" style='height: 340px; overflow: auto;'>
+	<p><span style='font-weight: bold;'>Aug 23, 2017 - MBDH All Hands Meeting</span><br>
+	Registration for the <a href='http://midwestbigdatahub.org/2017-all-hands-meeting/'>2017 MBDH All Hands Meeting - Data-Enabled Midwest Resilience</a> in Omaha, Nebraska is now available!</p>
 	<p><span style='font-weight: bold;'>Aug 11, 2017</span><br>
-	UASPSE Website online!</p>
+	New UASPSE Website online!</p>
 	<p><span style='font-weight: bold;'>July 24, 2017 - MBDH Digital Ag - All Hands</span><br>
-	Dates for the <a href='https://digital.ag.iastate.edu/uaspse-all-hands-meeting-sept-14-15-2017-ames-iowa' 
+	Dates for the <a href='https://digital.ag.iastate.edu/uaspse-all-hands-meeting-sept-14-2017-ames-iowa' 
 	target='meeting'>UASPSE All-Hands Meeting</a>, Sept. 14-15, 2017 in Ames, Iowa</p>
 	<p><span style='font-weight: bold;'>July 1, 2017</span><br>
 	Co-PI Clarke Visits Collaborators in Australia</p>
