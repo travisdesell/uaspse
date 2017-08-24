@@ -16,6 +16,29 @@
 								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
 							</td>
 							<td style='padding: 5px; vertical-align: top; align: left;'>
+								<p><span style='font-weight: bold'>UASPSE Social Media Groups</span><br>
+								Join the conversation online, whether its the on any of these sites:
+                                                                <ul>
+								<li>Facebook - <a href='https://www.facebook.com/groups/1933274716892061/' 
+									target='socialmedia'>Big Data Digital Ag</a></li>
+								<li>Twitter - <a href='https://twitter.com/BgDataDigitalAg' 
+									target='socialmedia'>@BgDataDigitalAg</a></li>
+								<li>Meetup.com - <a href='https://www.meetup.com/pro/producers' 
+									target='socialmedia'>Big Data & UAS in Digital Ag</a></li>
+								<ul></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+	
+
+				<div style='margin-top: 0px; margin-bottom: 5px;'>
+					<table>
+						<tr>
+							<td style='padding: 5px; width: 32px; vertical-align: top; align: left;'>
+								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
+							</td>
+							<td style='padding: 5px; vertical-align: top; align: left;'>
 								<p><span style='font-weight: bold'>MBDH Digital Agriculture Spoke Website</span><br>
 								Digital Agriculture is one of 9 thematic communities under the Midwest Big Data Hub (MBDH).
 								The MBDH is a growing network of partners investing in data and data sciences to address 
@@ -66,7 +89,8 @@
 					</table>
 				</div>
 			</div>
-			<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-top: 7px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Education</p>
+			<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-top: 7px; 
+				margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Education</p>
 			<div class="well" style="height: 156px; overflow: auto">
 				<div style='margin-top: 0px; margin-bottom: 5px;'>
 					<table>
@@ -82,22 +106,6 @@
 						</tr>
 					</table>
 				</div>
-<!--
-				<div style='margin-top: 0px; margin-bottom: 5px;'>
-					<table>
-						<tr>
-							<td style='padding: 5px; width: 32px; vertical-align: top; align: left;'>
-								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
-							</td>
-							<td style='padding: 5px; vertical-align: top; align: left;'>
-								<p><span style='font-weight: bold'>UASPSE Education Resource #2</span><br>
-								Put some text here.
-								<span style="font-weight: bold">[ <a href="/" 
-								target="digiag">LINK to Resource #2</a> ]</span></p>
-							</td>
-						</tr>
-					</table>
-				</div>
 
 				<div style='margin-top: 0px; margin-bottom: 5px;'>
 					<table>
@@ -106,17 +114,13 @@
 								<img alt='UASPSE Icon' style='height: 32px;' src='img/uaspse-48.png' />
 							</td>
 							<td style='padding: 5px; vertical-align: top; align: left;'>
-								<p><span style='font-weight: bold'>UASPSE Education Resource #3</span><br>
-								Put some text here.
-								<span style="font-weight: bold">[ <a href="/" 
-								target="digiag">LINK to Resource #3</a> ]</span></p>
+								<p><span style='font-weight: bold'>KSU & UNL Wedbinars</span><br>
+								<a href='http://greatplains.wpengine.com/archives/presentations/' 
+								target='edu_resources'>Great Plains Network - Big Data Zoom Webinars</a></p>
 							</td>
 						</tr>
 					</table>
 				</div>
-
-	-->
-			
 			</div>
 		</div>
 		<div class="col-sm-4">
