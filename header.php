@@ -28,6 +28,7 @@
 	<!-- Custom styles for this template -->
 	<link href='css/custom.css' rel='stylesheet'>
 	<link href='css/navbar-fixed-top.css' rel='stylesheet'>
+<!--	<link href='css/view.css' rel='stylesheet' media='all'> -->
 
 	<!-- jQuery (required by Bootstrap's JavaScript plugins) -->
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
@@ -35,6 +36,8 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
+	<script src='js/view.js'></script>
+	<script src='js/calendar.js'></script>
 	<script src="js/utilities.js"></script>
 
 </head>

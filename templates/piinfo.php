@@ -146,11 +146,11 @@
 
 			$peopleText .= "<div style='margin-bottom: 5px;' class='well'><table><tr>";
 			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='Image of ".$name."' ";
-			$peopleText .= "style='height:48px; width: 48px; text-align:left;' src='".$source."' /><td>";
+			$peopleText .= "style='height:48px; width: 48px; text-align:left;' src='".$source."' /></td>";
 			$peopleText .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>".$name;
 			$peopleText .= ", Ph.D. - <a href='javascript: getBio(\"".$i."\");'>View Bio</a><br></span>";
 			$peopleText .= "<span style='font-weight: bold; font-size: small;'>".$headline."</span></p></td>";
-			$peopleText .= "</table></div>";
+			$peopleText .= "</tr></table></div>";
 		}
 
 		$peopleText .= "</div></div>";
