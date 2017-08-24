@@ -28,7 +28,9 @@ function preLoginInfo()
 
 function proceedToLinkedIn()
 {
-	window.location = window.location + "?oauth=1";
+	var tVal = ""+window.location;
+	var array = tVal.split('?');
+	window.location = array[0] + "?oauth=1";
 }
 
 function doNotProceed()

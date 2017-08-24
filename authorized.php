@@ -28,8 +28,173 @@
 	elseif(isset($_GET["profile"])) profilePage($_GET["profile"]);
 	elseif(isset($_GET["list"])) listAllProfiles($_GET["list"]);
 	elseif(isset($_GET["remove"])) removeProfile($_GET["remove"]);
+	elseif(isset($_POST["event_title"])) updateEvents($_POST);
 	elseif($redirPath == "/authorized.php") header('Location:https://'.$redirHost);
 
+
+	function redirect_script()
+	{
+		echo '<div class="col-sm-8">';
+		echo "<script>window.location='https://".$_SERVER['HTTP_HOST']."/events.php';</script>";
+		echo '</div>';
+	}
+
+	function updateEvents($values)
+	{
+		if($_SERVER["PHP_SELF"] == "/events.php" && isset($_SESSION["ACCESS_TOKEN"]) == true && isset($_SESSION["USERDATA"]) == true)
+		{
+
+			$isAdmin = getIsAdmin();
+			if($isAdmin)
+			{
+				//event_title
+				//swd
+				//spotlight
+				//additional
+				//location
+				//register
+				//linktype
+				//makelive
+				//date_beg_1, date_beg_2, date_beg_3
+				//date_end_1, date_end_2, date_end_3
+				//id
+
+				$db1 = $values["date_beg_1"];
+				$db2 = $values["date_beg_2"];
+				$db3 = $values["date_beg_3"];
+				$start = $db3."-".$db2."-".$db1;
+				$de1 = $values["date_end_1"];
+				$de2 = $values["date_end_2"];
+				$de3 = $values["date_end_3"];
+				$stop = $de3."-".$de2."-".$de1;
+
+				$title = $values["event_title"];
+				$swd = $values["swd"];
+				$spotlight = $values["spotlight"];
+				$addition = $values["addition"];
+				$location = $values["location"];
+				$rlink = $values["register"];
+				$ltype = $values["linktype"];
+				$id = $values["id"];
+				$live = $values["makelive"];
+
+				$cmd = "";
+				if(getIsEvent($id))
+				{
+					$cmd  = "UPDATE events SET ";
+					$cmd .= "title='".$title."',"; 
+					$cmd .= "swd='".$swd."',"; 
+					$cmd .= "spotlight='".$spotlight."',";
+					$cmd .= "addition='".$addition."',";
+					$cmd .= "location='".$location."',";
+					$cmd .= "rlink='".$rlink."',";
+					$cmd .= "ltype=".$ltype.",";
+					$cmd .= "live=".$live.",";
+					$cmd .= "db1='".$db1."',";
+					$cmd .= "db2='".$db2."',";
+					$cmd .= "db3='".$db3."',";
+					$cmd .= "start='".$start."',";
+					$cmd .= "de1='".$de1."',";
+					$cmd .= "de2='".$de2."',";
+					$cmd .= "de3='".$de3."',";
+					$cmd .= "stop='".$stop."' ";
+					$cmd .= "WHERE id=".$id;
+				}
+				else
+				{
+					$cmd  = "INSERT INTO events (title,swd,spotlight,addition,location,rlink,ltype,id,live,db1,db2,db3,";
+					$cmd .= "start,de1,de2,de3,stop) VALUES (";
+					$cmd .= "'".$title."',";
+					$cmd .= "'".$swd."',";
+					$cmd .= "'".$spotlight."',";
+					$cmd .= "'".$addition."',";
+					$cmd .= "'".$location."',";
+					$cmd .= "'".$rlink."',";
+					$cmd .= $ltype.",";
+					$cmd .= $id.",";
+					$cmd .= $live.",";
+					$cmd .= "'".$db1."',";
+					$cmd .= "'".$db2."',";
+					$cmd .= "'".$db3."',";
+					$cmd .= "'".$start."',";
+					$cmd .= "'".$de1."',";
+					$cmd .= "'".$de2."',";
+					$cmd .= "'".$de3."',";
+					$cmd .= "'".$stop."'";
+					$cmd .= ")";
+				}
+
+
+				$dbase = opendb();
+				if($dbase)
+				{
+					error_log($cmd);
+					$dbase->query($cmd);
+					$dbase->close();
+				}
+			}	
+		}
+	}
+
+
+	function getEventInfo($tid)
+	{
+		if(getIsEvent($tid))
+		{
+			$dbase = opendb();
+			if($dbase)
+			{
+				$cmd = "SELECT * FROM events WHERE id=".$tid;
+				if($result = $dbase->query($cmd))
+				{
+					$row = $result->fetch_object();
+					$dbase->close();
+					return $row;
+				}
+				else return null;
+			}
+			else return null;
+		}
+		else return null;
+	}
+
+	function getIsEvent($tid)
+	{
+		$isEvent = false;
+		$dbase = opendb();
+
+		if($dbase)
+		{
+			$cmd = "SELECT id FROM events WHERE id=".$tid;
+			if($result = $dbase->query($cmd))
+			{
+				$row = $result->fetch_object();
+				if($row->id == $tid) $isEvent = true;
+			}
+			$dbase->close();
+		}
+
+		return $isEvent;
+	}
+
+	function getIsAdmin()
+	{
+		$userData = json_decode($_SESSION["USERDATA"]);
+		$isAdmin = false;
+		
+		$dbase = opendb();
+		if($dbase)
+		{
+			$cmd = "SELECT admin FROM profiles WHERE id='".$userData->id."'";
+			if($result = $dbase->query($cmd));
+			{
+				$row = $result->fetch_object();
+				if($row->admin == 1) $isAdmin = true;
+			}
+			$dbase->close();
+		}
+		return $isAdmin;
+	}
 
 	function listAllProfiles($lst)
 	{
