@@ -5,10 +5,12 @@
 	echo "<div class='well' style='margin-bottom: 7px;'>";
 	$hasUserInfo = false;
 	if($isAuthorized == true && $_SESSION["USERDATA"] !== null && isset($_SESSION["USERDATA"]) == true) $hasUserInfo = true;
-	if($hasUserInfo)
+
+	$userData = json_decode($_SESSION["USERDATA"]);
+	if($hasUserInfo == true && $userData->id !== null)
 	{
 //		error_log($_SESSION["USERDATA"]);
-		$userData  = json_decode($_SESSION["USERDATA"]);
+//		$userData  = json_decode($_SESSION["USERDATA"]);
 //		echo $_SESSION["USERDATA"];
 //		if($userImage !== null)
 //		{
