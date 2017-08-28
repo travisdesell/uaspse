@@ -38,6 +38,7 @@ function doNotProceed()
 	$('#profModal').modal('hide');
 }
 
+/*
 function checkUrl(url) {
         var request = false;
         if (window.XMLHttpRequest) {
@@ -52,6 +53,11 @@ function checkUrl(url) {
         }
 
         return false;
+}
+*/
+
+function checkURL(url) {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
 
 function listAllMembers()
