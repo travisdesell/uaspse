@@ -38,8 +38,8 @@ function doNotProceed()
 	$('#profModal').modal('hide');
 }
 
-/*
-function checkUrl(url) {
+
+function checkURL(url) {
         var request = false;
         if (window.XMLHttpRequest) {
                 request = new XMLHttpRequest;
@@ -54,12 +54,12 @@ function checkUrl(url) {
 
         return false;
 }
-*/
 
-function checkURL(url) {
-	var txt = "" + url;
-	return(txt.match(/\.(jpeg|jpg|gif|png)$/) != null);
-}
+
+//function checkURL(url) {
+//	var txt = "" + url;
+//	return(txt.match(/\.(jpeg|jpg|gif|png)$/) != null);
+//}
 
 function listAllMembers()
 {
