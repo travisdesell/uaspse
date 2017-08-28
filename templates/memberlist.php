@@ -44,7 +44,9 @@
 				$members[$m] .= "<div class='well' style='margin-top: 13px; margin-bottom: 13px;'>";
 				$members[$m] .= "<table><tr><td style='vertical-align: top; padding: 5px; text-align: left;'>";
 				$members[$m] .= "<img alt='Image of ".$row->firstName." ".$row->lastName;
-				$members[$m] .= "' style='height:40px; width:40px; text-align:left;' src='".$row->pictureUrl."' /></td>";
+				$tImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
+				if($row->pictureUrl !== null) $tImage = $row->pictureUrl;
+				$members[$m] .= "' style='height:40px; width:40px; text-align:left;' src='".$tImage."' /></td>";
 				$members[$m] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'>";
 				$members[$m] .= "<p style='font-weight: bold; font-size: small; margin-bottom: 0px;'>".$row->firstName." ".$row->lastName;
 				$members[$m] .= " - <a href='javascript: getProfile(\"".$row->id."\");'>View Profile</a></p>\n";
