@@ -87,7 +87,7 @@ function listAllMembers()
 					html += "<p style='font-weight: bold;'><img id='img_list_" + data[i].id + "' alt='Image of ";
 					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + data[i].pictureUrl + "' /> ";
 					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
-					html += "<script>$('img_user_" + data[i].id +"').load(function(){console.log('loaded');}).error(function(){$('img_user_"+ data.id[i]+"').attr('src', '"+ vImage +"'});</script>";
+					html += "<script>$('img_user_" + data[i].id +"').load(function(){console.log('loaded');}).error(function(){$('img_user_"+ data[i].id+"').attr('src', '"+ vImage +"'});</script>";
 				}
 				pdiv.innerHTML = html + "</div>";
 			}
