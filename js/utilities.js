@@ -38,6 +38,22 @@ function doNotProceed()
 	$('#profModal').modal('hide');
 }
 
+function checkUrl(url) {
+        var request = false;
+        if (window.XMLHttpRequest) {
+                request = new XMLHttpRequest;
+        } else if (window.ActiveXObject) {
+                request = new ActiveXObject("Microsoft.XMLHttp");
+        }
+
+        if (request) {
+                request.open("GET", url);
+                if (request.status == 200) { return true; }
+        }
+
+        return false;
+}
+
 function listAllMembers()
 {
 	var xhttp = new XMLHttpRequest();
@@ -59,8 +75,10 @@ function listAllMembers()
 				var html = "<div style='height: 400px; overflow: auto; margin: 0px; padding: 0px;'>";
 				for(i=0;i<data.length;i++)
 				{
+					var tImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
+					if(checkUrl(data[i].pictureUrl)) tImage = data[i].pictureUrl;
 					html += "<p style='font-weight: bold;'><img alt='Image of ";
-					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + data[i].pictureUrl + "' /> ";
+					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + tImage + "' /> ";
 					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
 				}
 				pdiv.innerHTML = html + "</div>";
