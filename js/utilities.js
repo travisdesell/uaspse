@@ -86,7 +86,9 @@ function listAllMembers()
 				{
 					console.log(data[i].pictureUrl);
 					html += "<p style='font-weight: bold;'><img id='img_list_" + data[i].id + "' alt='Image of ";
-					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + data[i].pictureUrl + "' /> ";
+					var tempimg = "" + data[i].pictureUrl;
+					if(tempimg == "undefined") tempimg = vImage;
+					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + tempimg + "' /> ";
 					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
 					html += "<script>$('img_user_" + data[i].id +"').load(function(){console.log('loaded');}).error(function(){$('img_user_"+ data[i].id+"').attr('src', '"+ vImage +"'});</script>";
 				}
@@ -139,8 +141,9 @@ function getProfile(ui)
 					    html += "<table><tr>";
 					    html += "<td style='vertical-align: top; padding-top: 5px; padding-left: 5px; ";
 					    html += "padding-bottom: 5px; padding-right: 10px; text-align: left;'><img id='img_user_" + data.id + "' alt='Image of ";
-					    console.log(data.pictureUrl);
-					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + data.pictureUrl + "' />";
+					    var tempimg = "" + data.pictureUrl;
+					    if(tempimg == "undefined") tempimg = vImage;
+					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + tempimg + "' />";
 					    html += "<p style='text-align: center; font-weight: bold; font-size: small; ";
 					    html += "padding-top: 5px;'><a href='mailto:" + data.emailAddress + "'>Send Email</a></p></td>";
 					    html += "<td style='vertical-align: top; padding: 5px; text-align: left;'>";
