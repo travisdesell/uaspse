@@ -136,7 +136,11 @@ function getProfile(ui)
 					    html += "<table><tr>";
 					    html += "<td style='vertical-align: top; padding-top: 5px; padding-left: 5px; ";
 					    html += "padding-bottom: 5px; padding-right: 10px; text-align: left;'><img alt='Image of ";
-					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + data.pictureUrl + "' />";
+
+					    var tImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
+					    if(checkUrl(data[i].pictureUrl)) tImage = data[i].pictureUrl;
+	
+					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + tImage + "' />";
 					    html += "<p style='text-align: center; font-weight: bold; font-size: small; ";
 					    html += "padding-top: 5px;'><a href='mailto:" + data.emailAddress + "'>Send Email</a></p></td>";
 					    html += "<td style='vertical-align: top; padding: 5px; text-align: left;'>";
