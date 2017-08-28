@@ -57,7 +57,8 @@ function checkUrl(url) {
 */
 
 function checkURL(url) {
-    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+	var txt = "" + url;
+	return(txt.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
 
 function listAllMembers()
