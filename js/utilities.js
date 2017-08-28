@@ -82,7 +82,7 @@ function listAllMembers()
 				for(i=0;i<data.length;i++)
 				{
 					var tImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
-					if(checkUrl(data[i].pictureUrl)) tImage = data[i].pictureUrl;
+					if(checkURL(data[i].pictureUrl)) tImage = data[i].pictureUrl;
 					html += "<p style='font-weight: bold;'><img alt='Image of ";
 					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + tImage + "' /> ";
 					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
@@ -138,7 +138,7 @@ function getProfile(ui)
 					    html += "padding-bottom: 5px; padding-right: 10px; text-align: left;'><img alt='Image of ";
 
 					    var tImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
-					    if(checkUrl(data[i].pictureUrl)) tImage = data[i].pictureUrl;
+					    if(checkURL(data[i].pictureUrl)) tImage = data[i].pictureUrl;
 	
 					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + tImage + "' />";
 					    html += "<p style='text-align: center; font-weight: bold; font-size: small; ";
