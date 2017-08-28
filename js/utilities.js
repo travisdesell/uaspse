@@ -84,6 +84,7 @@ function listAllMembers()
 				var html = "<div style='height: 400px; overflow: auto; margin: 0px; padding: 0px;'>";
 				for(i=0;i<data.length;i++)
 				{
+					console.log(data[i].pictureUrl);
 					html += "<p style='font-weight: bold;'><img id='img_list_" + data[i].id + "' alt='Image of ";
 					html += data[i].firstName + " " + data[i].lastName + "' style='height:48px;' src='" + data[i].pictureUrl + "' /> ";
 					html += data[i].firstName + " " + data[i].lastName + " - <a href='javascript: closeGetProfile(\"" + data[i].id + "\");'>View Profile</a></p>";
@@ -138,6 +139,7 @@ function getProfile(ui)
 					    html += "<table><tr>";
 					    html += "<td style='vertical-align: top; padding-top: 5px; padding-left: 5px; ";
 					    html += "padding-bottom: 5px; padding-right: 10px; text-align: left;'><img id='img_user_" + data.id + "' alt='Image of ";
+					    console.log(data.pictureUrl);
 					    html += data.firstName + " " + data.lastName + "' style='height:80px; text-align:left;' src='" + data.pictureUrl + "' />";
 					    html += "<p style='text-align: center; font-weight: bold; font-size: small; ";
 					    html += "padding-top: 5px;'><a href='mailto:" + data.emailAddress + "'>Send Email</a></p></td>";
