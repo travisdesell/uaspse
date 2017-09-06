@@ -5,7 +5,7 @@
  	$context = stream_context_create($options);
 	$response = file_get_contents($mupurl, false, $context);
 
-	$chop = explode('Nearby', $response);
+	$chop = explode('Meetup Groups Nearby', $response);
 	$bkchop = explode('<ul class="list">', $chop[1]);
 	$endchop = explode('</ul>', $bkchop[1]);
 
