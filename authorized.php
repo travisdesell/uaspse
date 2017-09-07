@@ -61,11 +61,15 @@
 
 				$db1 = $values["date_beg_1"];
 				$db2 = $values["date_beg_2"];
+				if(intval($db2) < 10) $db2 = "0".intval($db2);
 				$db3 = $values["date_beg_3"];
+				if(intval($db3) < 10) $db3 = "0".intval($db3);
 				$start = $db3."-".$db1."-".$db2;
 				$de1 = $values["date_end_1"];
 				$de2 = $values["date_end_2"];
+				if(intval($de2) < 10) $de2 = "0".intval($de2);
 				$de3 = $values["date_end_3"];
+				if(intval($de3) < 10) $de3 = "0".intval($de3);
 				$stop = $de3."-".$de1."-".$de2;
 
 				$title = $values["event_title"];
