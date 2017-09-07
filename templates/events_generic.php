@@ -39,11 +39,20 @@
 				$dbase = opendb();
 				if($dbase)
 				{
-					$cmd = "SELECT * FROM events ORDER by start DESC";
+					$cmd = "SELECT * FROM events ORDER by start ASC";
+					$tyear = date('Y');
+					$tmonth = date('m');
+					$tday = date('d');
 					$result = $dbase->query($cmd);
 					while($row = $result->fetch_object())
 					{
-						if($row->live == 1 || $isAdmin == true)
+						$usershow = $row->live;
+
+						if(intval($row->de1) < intval($tyear)) $usershow = 0;
+						else if(intval($row->de3) < intval($tmonth)) $usershow = 0;
+						else if(intval($row->de2) < intval($tday)) $usershow = 0;
+						
+						if($usershow == 1 || $isAdmin == true)
 						{
 						echo "<div style='margin-bottom: 5px; padding: 2px;' class='well'><table><tr>";
 						echo "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='UASPSE Icon' ";
