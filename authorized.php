@@ -62,11 +62,11 @@
 				$db1 = $values["date_beg_1"];
 				$db2 = $values["date_beg_2"];
 				$db3 = $values["date_beg_3"];
-				$start = $db3."-".$db2."-".$db1;
+				$start = $db3."-".$db1."-".$db2;
 				$de1 = $values["date_end_1"];
 				$de2 = $values["date_end_2"];
 				$de3 = $values["date_end_3"];
-				$stop = $de3."-".$de2."-".$de1;
+				$stop = $de3."-".$de1."-".$de2;
 
 				$title = $values["event_title"];
 				$swd = $values["swd"];
