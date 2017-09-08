@@ -48,8 +48,10 @@
 					{
 						$usershow = $row->live;
 
-						if(intval($row->de1) < intval($tyear)) $usershow = 0;
-						else if(intval($row->de3) < intval($tmonth)) $usershow = 0;
+						error_log("User Show: ".$usershow);	
+						error_Log("de1: ".intval($row->de1).", tyear: ".intval($tyear).", de3: ".intval($row->de3).", tmonth: ".intval($tmonth).", de2: ".intval($row->de2).", tday: ".intval($tday));
+						if(intval($row->de3) < intval($tyear)) $usershow = 0;
+						else if(intval($row->de1) < intval($tmonth)) $usershow = 0;
 						else if(intval($row->de2) < intval($tday)) $usershow = 0;
 						
 						if($usershow == 1 || $isAdmin == true)
