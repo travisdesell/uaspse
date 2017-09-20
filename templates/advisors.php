@@ -49,6 +49,15 @@
 	$adv[4] .= "<span style='font-weight: bold; font-size: small;'>Executive Vice President - PrecisionHawk</span></p></td>";
 	$adv[4] .= "</table></div>"; 
 
+	$adv[5]  = "<div style='margin-bottom: 5px;' class='well'><table><tr>";
+	$adv[5] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='Image of Jason Cepela' ";
+	$adv[5] .= "style='height:48px; width: 48px; text-align:left;' src='img/jason_cepela_80.jpg' /><td>";
+	$adv[5] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>Jason Cepela";
+	$adv[5] .= "- <a href='https://www.linkedin.com/in/jasoncepela/' target='_blank'>Website</a><br></span>";
+	$adv[5] .= "<span style='font-weight: bold; font-size: small;'>Crop Computational Biology Lead - Agro Discovery</span></p></td>";
+	$adv[5] .= "</table></div>"; 
+
+
 	shuffle($adv);
 
 	$cadv = count($adv);
