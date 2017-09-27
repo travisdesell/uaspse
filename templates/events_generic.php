@@ -44,16 +44,16 @@
 					$tmonth = date('m');
 					$tday = date('d');
 					$result = $dbase->query($cmd);
-					$cDate = date('Y/m/d H:i:s');
+					$cTime = time();
 					while($row = $result->fetch_object())
 					{
 						$usershow = $row->live;
 
-						$eDate = date_create($row->stop."23:59:59");
+						$eTime = strtotime($row->stop) + (24 * 60 *60);
 
-						if($eDate < $cDate) $usershow = 0;
-						error_log("eDate: ".$eDate);
-						error_log("cDate: ".$cDate);
+						if($eTime < $cTime) $usershow = 0;
+//						error_log("eDate: ".$eDate)
+//						error_log("cDate: ".$cDate);
 //						error_log("User Show: ".$usershow);	
 //						error_Log("de1: ".intval($row->de3).", tyear: ".intval($tyear).", de3: ".intval($row->de1).", tmonth: ".intval($tmonth).", de2: ".intval($row->de2).", tday: ".intval($tday));
 
