@@ -22,7 +22,7 @@
 	$adv[1] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>April Agee Carroll";
 	$adv[1] .= ", Ph.D. - <a href='https://www.linkedin.com/in/aprilageecarroll/' ";
 	$adv[1] .= "target='_blank'>Website</a><br></span>";
-	$adv[1] .= "<span style='font-weight: bold; font-size: small;'>Director of Phenomics for Purdue Agriculture</span></p></td>";
+	$adv[1] .= "<span style='font-weight: bold; font-size: small;'>Vice President of Research & Development at AeroFarms</span></p></td>";
 	$adv[1] .= "</table></div>"; 
 
 	$adv[2]  = "<div style='margin-bottom: 5px;' class='well'><table><tr>";
@@ -30,7 +30,7 @@
 	$adv[2] .= "style='height:48px; width: 48px; text-align:left;' src='img/mark_moran_80.jpg' /><td>";
 	$adv[2] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>Mark Moran";
 	$adv[2] .= ", Ph.D. - <a href='https://www.linkedin.com/in/moranmarkd/' target='_blank'>Website</a><br></span>";
-	$adv[2] .= "<span style='font-weight: bold; font-size: small;'>Assoc. Directo, John Deere Technology Innovation Center</span></p></td>";
+	$adv[2] .= "<span style='font-weight: bold; font-size: small;'>Associate Director, John Deere Technology Innovation Center</span></p></td>";
 	$adv[2] .= "</table></div>"; 
 
 	$adv[3]  = "<div style='margin-bottom: 5px;' class='well'><table><tr>";
@@ -54,7 +54,7 @@
 	$adv[5] .= "style='height:48px; width: 48px; text-align:left;' src='img/jason_cepela_80.jpg' /><td>";
 	$adv[5] .= "<td style='vertical-align: top; padding: 5px; text-align: left;'><p><span style='font-weight: bold; font-size: medium'>Jason Cepela";
 	$adv[5] .= "- <a href='https://www.linkedin.com/in/jasoncepela/' target='_blank'>Website</a><br></span>";
-	$adv[5] .= "<span style='font-weight: bold; font-size: small;'>Crop Computational Biology Lead - Agro Discovery</span></p></td>";
+	$adv[5] .= "<span style='font-weight: bold; font-size: small;'>Crop Computational Biology Lead - Agro Discovery, PepsiCo R&D</span></p></td>";
 	$adv[5] .= "</table></div>"; 
 
 
