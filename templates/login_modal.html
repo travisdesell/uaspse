@@ -1,0 +1,77 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+            <div class="modal-header" style='background-color: #a1d6a0;'>
+				<h5 class="modal-title" id="exampleModalLabel">UASPSE Member Account</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+            <div class="modal-body" style='background-color: #F8F9FA'>
+                {{#user}}
+                <div id='{{user_id}}' style='text-align: center;'>
+                    <img 'Linkedin.com User Profile Image' style='padding-bottom: 10px' src='{{user_image}}'/>
+                    <p>
+                    <a href='javascript: getProfile("{{user_id}}");' style='border-radius: 2px; background-color: #11ad40; font-weight: bold; font-size: 0.8em; color: #FFFFFF; padding: 2px 5px;'>Display Member Profile</a>
+                    </p>
+
+                    <p>
+                    <a style='font-weight: bold;' href='{{prof_link}}' target='_blank'>{{firstname}} {{lastname}}</a>
+                    <br>
+                    {{headline}}
+                    </p>
+                </div>
+                {{/user}}
+
+                {{^user}}
+
+                <div class='container-fluid'>
+                    <div class='row'>
+                        <div class='col-md-4'>
+                            <div class='card'>
+                                <img class='card-img-top' alt='No User Profile Image Available' style='padding-bottom: 10px;' src='https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png' />
+                                <div class='card-body'>
+                                    <div style='text-align: center'>
+                                        <p style='font-weight: bold;'>Sign-in using LinkedIn<br>to access<br>UASPSE Community</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-md-8'>
+                            <div class='card'>
+                                <div class='card-body'>
+                                    <h5>Data Collection</h5>
+                                    <p>Using your LinkedIn credentials to create a UASPSE Member Account will give DigitalAg.org access to all the information in your LinkedIn profile. By signing in, you authorize DigitalAg.org to collect this information and store it in a database.</p>
+
+                                    <h5>Data Removal</h5>
+                                    <p>To remove your LinkedIn profile information from the DigitalAg.org database and disenroll as a UASPSE Member, click the 'Remove UASPSE Account' located on your UASPSE Member Profile. Doing so will perminently remove your LinkedIn data from the database. You may re-join the UASPSE Membership at any time.</p>
+
+                                    <h5>For what purpose will my data be used?</h5>
+                                    <p>DigitalAg.org will use this data to identify and suggest potential partnerships and disseminate project information to UASPSE Members. Your information will not be shared with any third parties and we will not send you any unsolicited email.  After registering, you can opt-in to occasional emails about UASPSE events and activities from your account page.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{/user}}
+
+			</div>
+			<div class="modal-footer">
+                {{#user}}
+                <a role="button" class="btn btn-primary btn-block" href='?logout=1'>
+                    Sign-out of LinkedIn
+                </a>
+                {{/user}}
+                {{^user}}
+                <a role="button" class="btn btn-primary btn-block" href='javascript: proceedToLinkedIn();'>
+                    Sign-in using LinkedIn
+                </a>
+                {{/user}}
+			</div>
+		</div>
+	</div>
+</div>

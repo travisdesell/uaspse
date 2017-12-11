@@ -1,0 +1,76 @@
+<div id='content' class='container'>
+    <div class="row" style='margin-bottom:10px;'>
+        <div class="col-sm-6">
+            <div class="card" >
+                <h5 class="card-header" style='background-color: #a1d6a0;'>Principal Investigators</h5>
+
+                <div class ="card-body" style='background-color:#F8F9FA'>
+                    <div id="investigatorAccordion" data-children=".item">
+                        {{#PIs}}
+                        <div class="item">
+                            <div class='row'>
+                                <div class='col-md-3'>
+                                    <img src='{{source}}' alt='Image of {{name}}'/><br>
+                                    <p style='text-align:center'>
+                                    <a data-toggle="collapse" data-parent="#investigatorAccordion" href="#investigatorAccordion{{accordion_id}}" aria-expanded="true" aria-controls="investigatorAccordion{{accordion_id}}">
+                                        Show Bio
+                                    </a>
+                                    </p>
+                                </div>
+                                <div class='col-md-9'>
+                                    {{name}}, <small>{{^PI}}Co-{{/PI}}Principal Investigator</small><br>
+                                    <a href='{{homepage}}'>Website</a><br>
+                                    <a href='mailto:{{email}}'>{{email}}</a><br>
+                                    {{headline}}
+                                </div>
+                            </div>
+
+                            <div id="investigatorAccordion{{accordion_id}}" class="collapse" role="tabpanel">
+                                <p class="mb-3" style='font-size:small;'>
+                                <br>
+
+                                {{#degrees}}
+                                <b>{{degrees}}</b>
+                                <br>
+                                <br>
+                                {{/degrees}}
+
+                                {{{bio}}}
+                                </p>
+                            </div>
+                        </div>
+
+                        {{^last}}
+                        <hr>
+                        {{/last}}
+                        {{/PIs}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card" style='background-color: #F8F9FA'>
+                <h5 class="card-header" style='background-color: #a1d6a0;'>Advisory Board</h4>
+                <div class="card-body">
+                    {{#board}}
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <img height='80px' width='80px' src='{{source}}' alt='Image of {{name}}'/><br>
+                        </div>
+                        <div class='col-md-9'>
+                            {{name}}<br>
+                            <a href='{{homepage}}'>Website</a><br>
+                            {{headline}}
+                        </div>
+                    </div>
+
+                    {{^last}}
+                    <hr>
+                    {{/last}}
+                    {{/board}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->

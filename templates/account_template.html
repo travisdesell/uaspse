@@ -1,0 +1,71 @@
+<div class='container' style='margin-bottom:10px;'>
+    <div class='row'>
+        {{#logged_in}}
+        <div class='col-sm-12'>
+            <div class='card'>
+                <div class='card-header' style='background-color: #a1d6a0;'>Member Account</div>
+                <div class='card-body'>
+                    <img alt='Image of {{firstName}} {{lastName}}' style='padding-bottom: 10px;' src='{{pictureUrl}}' />
+                    <br>
+
+                    <a style='font-weight: bold;' href='{{publicProfileUrl}}' target='_blank'>{{firstName}} {{lastName}}</a>
+                    <br>
+
+                    <a href='mailto:{{emailAddress}}'>{{emailAddress}}</a>
+                    <br>
+                    {{headline}}
+                    <br>
+                    {{#profile}}
+                        {{#location}}
+                        {{name}}, {{country}}<br>
+                        {{/location}}
+
+                    {{/profile}}
+                    <hr>
+                    <p>To better connect yourself with other members of the UASPSE digital agriculture spoke, you can enter in keywords (separated by semicolons) which describe your skills and research interests.</p>
+
+                        <div class="form-group">
+                            <label for="keywordsLabel">Skills and Research Interest Keywords:</label>
+                            <input type="text" class="form-control" id="keywordsInput" aria-describedby="keywordHelp" placeholder="keyword 1; keyword 2; keyword 3" value="{{keywords}}">
+                            <small id="keywordHelp" class="form-text text-muted"></small>
+                        </div>
+                        <button id="submitKeywordsButton" type="submit" class="btn btn-primary">{{#has_keywords}}Update{{/has_keywords}}{{^has_keywords}}Submit{{/has_keywords}}</button>
+
+                    <hr>
+
+                    <div id='accountEmailContent' userid='{{id}}'>
+                        {{#deny_emails}}
+                        <p>
+                        The UASPSE team can occasionally send you emails involving UASPSE events and activities. We will not share your email address with third parties or email you without your permission. You can opt in to our emails with the following button.</p>
+
+                        <button id="subscribeButton" type="button" class="btn btn-primary" href='https://digitalag.org/opt_in.php?id={{id}}'>Subscribe to UASPSE E-Mails</button>
+                        {{/deny_emails}}
+
+                        {{#allow_emails}}
+                        You have subscribed to emails about UASPSE events and activities. You can unsubscribe at any time with the following button.</p>
+
+                        <button id="unsubscribeButton" type="button" class="btn btn-danger" href='https://digitalag.org/opt_in.php?id={{id}}'>Unsubscribe from UASPSE E-Mails</button>
+                        {{/allow_emails}}
+                    </div> <!-- accountEmailContent -->
+
+                    <hr>
+                    <p>You can delete your account and all related information from our database at any time with the following button.</p>
+
+                    <a role="button" class="btn btn-danger" href='https://digitalag.org/?remove={{id}}'>Remove UASPSE Account</a>
+                </div>
+            </div>
+        </div>
+        {{/logged_in}}
+
+        {{^logged_in}}
+        <div class='card col-sm-12'>
+            <div class='card-body'>
+                <h3>UASPSE Member Profile - Error</h3>
+                <p>Sorry, you must be logged into your UASPSE Member account in order to view your account information. To log in, please click the Login menu item on the top right in the navigation bar, or use the below button.<p>
+                <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0);">Sign-in using LinkedIn</a>
+            </div>
+        </div>
+        {{/logged_in}}
+    </div>
+</div>
+

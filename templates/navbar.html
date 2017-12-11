@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">
+    <img alt='Digital Agriculture: Unmanned Aircraft Systems, Plant Sciences, and Educaiton' src='img/uaspse-48-nob-trans.png' height='32' width='32' style='padding-top:0px; padding-bottom:0px; margin-right:2px'/>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class='nav-item {{home_active}}'><a class='nav-link' href='index.php'>Home</a></li>
+            <li class='nav-item {{people_active}}'><a class='nav-link' href='people.php'>People</a></li>
+            <li class='nav-item {{community_active}}'><a class='nav-link' href='community.php'>Community</a></li>
+            <li class='nav-item {{resources_active}}'><a class='nav-link' href='resources.php'>Resources</a></li>
+            <li class='nav-item {{events_active}}'><a class='nav-link' href='events.php'>Events</a></li>
+        </ul>
+
+        <ul class="navbar-nav">
+            {{#logged_in}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="account.php">Account Information</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="?logout=1">Sign Out via LinkedIn</a>
+                </div>
+            </li>
+            {{/logged_in}}
+
+            {{^logged_in}}
+            <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0);">Login</a></li>
+            {{/logged_in}}
+        </ul>
+    </div>
+</nav>
+

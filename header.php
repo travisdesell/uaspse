@@ -1,44 +1,19 @@
 <?php
-        if (session_status() == PHP_SESSION_NONE) session_start();
-        $_SESSION["LASTPAGE"] = $_SERVER['PHP_SELF'];
-        require("authorized.php");
 
-	$isAuthorized = checkAuthorized();
+$cwd[__FILE__] = __FILE__;
+if (is_link($cwd[__FILE__])) $cwd[__FILE__] = readlink($cwd[__FILE__]);
+$cwd[__FILE__] = dirname($cwd[__FILE__]);
+
+function print_header($title, $additional_js = "", $additional_css = "") {
+    global $cwd;
+
+    $header_info['page_title'] = $title;
+    $header_info['js' ] = $additional_js;
+    $header_info['css'] = $additional_css;
+
+    $header_template = file_get_contents($cwd[__FILE__] . "/templates/header.html");
+    $m = new Mustache_Engine;
+    echo $m->render($header_template, $header_info);
+}
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-
-	<title>
-<?php
-	echo $page_title;
-?>
-	</title>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-	<!-- <link rel='stylesheet' href='./css/bootstrap-slate.min.css'> -->
-
-	<!-- Optional theme
-	<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css'>
-	-->
-
-	<!-- Custom styles for this template -->
-	<link href='css/custom.css' rel='stylesheet'>
-	<link href='css/navbar-fixed-top.css' rel='stylesheet'>
-<!--	<link href='css/view.css' rel='stylesheet' media='all'> -->
-
-	<!-- jQuery (required by Bootstrap's JavaScript plugins) -->
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-	<script src='js/view.js'></script>
-	<script src='js/calendar.js'></script>
-	<script src="js/utilities.js"></script>
-
-</head>
-<body>
