@@ -15,3 +15,11 @@
     vertical-align:middle;
     margin-right:-4px;
 }
+
+.card-header {
+    background-color:#a1d6a0;
+}
+
+.card-body {
+    background-color:#F8F9FA;
+}

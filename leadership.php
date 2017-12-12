@@ -127,9 +127,9 @@ $people_info['board'][] = array(
     'last' => 1
 );
 
-$people_template = file_get_contents($cwd[__FILE__] . "/templates/people_template.html");
+$leadership_template = file_get_contents($cwd[__FILE__] . "/templates/leadership_template.html");
 $m = new Mustache_Engine;
-echo $m->render($people_template, $people_info);
+echo $m->render($leadership_template, $people_info);
 
 
 require_once("footer.php");
