@@ -21,8 +21,10 @@
 				echo "</span><span style='font-weight: bold;'> TO </span><span style='font-style: italic;'>".$row->stop."</span></span>";
 				$linktype = "mailto:";
 				if($row->ltype == 1) $linktype = "";
-				echo "<br><span style='font-weight: bold;'>Register: </span><a style='font-weight: bold;' href='".$linktype.$row->rlink;
-				echo "' target='uaspse_event'>Click for Registration Info</a></p>";
+                if ($row->rlink != "") {
+                    echo "<br><span style='font-weight: bold;'>Register: </span><a style='font-weight: bold;' href='".$linktype.$row->rlink;
+                    echo "' target='uaspse_event'>Click for Registration Info</a></p>";
+                }
 				echo "<p style='font-size: medium; margin-left: 10px;'>".$row->spotlight."</p>";
 				echo "<p style='font-size: medium; margin-left: 10px;'>".$row->addition."</p>";
 				}

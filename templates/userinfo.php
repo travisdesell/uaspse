@@ -43,9 +43,6 @@
 			$hasUser .= $headline."</p><img alt='Linkedin.com Logo' src='img/in14.png' />&nbsp;<a href='?logout=1' ";
 //			$hasUser .= $headline."</p><img alt='Linkedin.com Logo' src='img/in14.png' />&nbsp;<a href='javascript: tal();' ";
 
-
-
-
 			$hasUser .= "style='text-decoration: none; border-radius: 2px; ";
 			$hasUser .= "background-color: #0077B5; font-weight: bold; ";
 			$hasUser .= "font-size: 0.8em; color: #FFFFFF; padding: 1px 1px;'>";

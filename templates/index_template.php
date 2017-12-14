@@ -7,7 +7,7 @@
 
     <div class="col-sm-4">
       <p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE - About the Digital Ag Project</p>
-      <div class="well" style='height: 340px; overflow: auto;'>
+      <div class="well">
 		<p><span style="font-weight: bold">Introduction</span><br><span style="margin-left: 20px;">The <a href="https://digital.ag.iastate.edu/" target="mbdh">Digital Agriculture Spoke</a> of the 
 			<a href="http://midwestbigdatahub.org/" target="mbdh">Midwest Big Data Hub</a> seeks to organize academic, industrial, and governmental 
 			sectors around the development of policies and best practices for data science and Big Data applications in 
@@ -36,7 +36,7 @@
  
     <div class="col-sm-4">
       <p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE News</p>
-      <div class="well" style='height: 340px; overflow: auto;'>
+      <div class="well">
 	<p><span style='font-weight: bold;'>Aug 23, 2017 - MBDH All Hands Meeting</span><br>
 	Registration for the <a href='http://midwestbigdatahub.org/2017-all-hands-meeting/'>2017 MBDH All Hands Meeting - Data-Enabled Midwest Resilience</a> in Omaha, Nebraska is now available!</p>
 	<p><span style='font-weight: bold;'>Aug 11, 2017</span><br>

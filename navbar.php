@@ -43,6 +43,20 @@
 		echo "<li".$arr[4]."><a href='events.php'>Events</a></li>";
 //	}
 ?>
+
+    <!--
+      <li class="nav-item dropdown pullright">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class='well'>
+                Stuff about the session here!
+            <div>
+        </div>
+      </li>
+    -->
+
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

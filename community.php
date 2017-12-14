@@ -1,4 +1,5 @@
 <?php
+    error_log("in the community php script!");
 	$page_title = "Community - UASPSE";
 	require("header.php");
 	require("navbar.php");
