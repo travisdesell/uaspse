@@ -1,0 +1,41 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='card' style='margin-bottom:10px;'>
+                <h5 class='card-header'>Unmanning Data Mondays - <i>Getting the human out of unmanned aerial systems data</i></h5>
+                <div class='card-body'>
+                    <p>
+                    Unmanned aerial systems (UAS) are excellent sensor deployment packages that are contributing to the data deluge in many fields such as agriculture, ecology and smart cities/infrastructure. Optical, infrared, LIDAR, multispectral and other sensor packages can provide data on scales impossible for humans to quickly and accurately analyze, leading to significant challenges in many fields wishing to operationally utilize UAS. This webinar series will feature speakers from academia and industry to discuss and introduce participants to UAS data analysis software and algorithms, metadata standards, and best practices, with a goal of harmonizing UAS data access, reproducibility and reuse across institutions and industry.
+                    </p>
+                    <p>
+                    UASPSE and the University of North Dakota are hosting a rotating series of webinars called <b>Unmanning Data Mondays: Getting the human out of unmanned aerial systems data.</b> The webinars are hosted in person from institutions involved with UASPSE and the Midwest Data Hub, and will be streamed online.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class='col-sm-12'>
+            {{#webinars}}
+            <div class='card' style='margin-bottom:10px;'>
+                <h5 class='card-header'>{{title}} <small>{{date}}, {{time}}</small></h5>
+                <div class='card-body'>
+                    <b>URL:</b><br> {{#zoom_url}}<a href='{{zoom_url}}'>Zoom URL</a>{{/zoom_url}}{{^zoom_url}}Please check back here for the Zoom URL address.{{/zoom_url}}
+                    <hr>
+                    <b>Location:</b><br>
+                    {{{location}}}
+
+                    <hr>
+
+                    {{#sessions}}
+                    <h5>{{title}}</h5>
+                    <h5><i><small>{{presenter}}, {{position}}</small></i></h5>
+                    <p>{{description}}</p>
+                    {{^last}}<hr>{{/last}}
+                    {{/sessions}}
+
+                </div>
+            </div>
+            {{/webinars}}
+        </div>
+    </div>
+</div>

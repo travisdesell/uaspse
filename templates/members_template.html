@@ -1,0 +1,86 @@
+<div class='container'>
+    <div class="row">
+        <div class="col-sm-12" style='margin-bottom:10px;'>
+            {{^logged_in}}
+            <div class='card'>
+                <div class='card-body'>
+                    <h3>UASPSE Members Area - Error</h3>
+                    <p>Sorry, you must be logged into your UASPSE Member account in order to view member account information. To log in, please click the Login menu item on the top right in the navigation bar, or use the below button.<p>
+                    <a role="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0);">Sign-in using LinkedIn</a>
+                </div>
+            </div>
+            {{/logged_in}}
+
+            {{#logged_in}}
+            <div class="card" style='margin-bottom:10px;'>
+                <h5 class='card-header'>UASPSE Membership</h4>
+                <div class='card-body'>
+                    <div class='container' style='margin-bottom:20px;'>
+                        <div class='row'>
+                            <div class='col-sm-12' style='padding-left:0px; padding-right:0px;'>
+                                <nav aria-label="...">
+                                    <ul class="pagination" style='margin-bottom:0px;'>
+                                        <li class="page-item {{previous_disabled}}">
+                                            <a class="page-link" href="members.php?number={{prev_number}}" tabindex="-1">Previous</a>
+                                        </li>
+                                        {{#numbers}}
+                                        <li class="page-item {{#current}}active{{/current}}"><a class="page-link" href="members.php?number={{number}}">{{number}} {{#current}}<span class="sr-only">(current)</span>{{/current}}</a></li>
+                                        {{/numbers}}
+                                        <li class="page-item {{next_disabled}}">
+                                            <a class="page-link" href="members.php?number={{next_number}}">Next</a>
+                                        </li>
+
+                                        <!--
+                                        <form class="form-inline" style='margin-left:30px;'>
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                        </form>
+                                        -->
+                                    </ul>
+                                </nav>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {{#members}}
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div class='row'>
+
+                                <div class='col-sm-2'>
+                                    {{#pictureUrl}}
+                                    <img alt='Image of {{firstName}} {{lastName}}' style='padding-bottom: 10px;' src='{{pictureUrl}}' />
+                                    {{/pictureUrl}}
+                                </div>
+
+                                <div class='col-sm-10'>
+                                    <a style='font-weight: bold;' href='{{publicProfileUrl}}' target='_blank'>{{firstName}} {{lastName}}</a>
+                                    <br>
+
+                                    <a href='mailto:{{emailAddress}}'>{{emailAddress}}</a>
+                                    <br>
+                                    {{headline}}
+                                    <br>
+                                    {{#profile}}
+                                    {{#location}}
+                                    {{name}}, {{country}}<br>
+                                    {{/location}}
+
+                                    {{/profile}}
+                                    {{#keywords}}<b>Skills & Interests:</b> {{keywords}}{{/keywords}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/members}}
+				</div>
+            </div>
+
+            {{/logged_in}}
+
+		</div>
+	</div>
+</div> <!-- /container -->

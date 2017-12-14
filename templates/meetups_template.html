@@ -1,0 +1,28 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-12' style='margin-bottom:10px;'>
+            <div class='card'>
+                <div class='card-body'>
+                    The UASPSE team hosts a <a href='https://www.meetup.com/pro/producers'>national meetup group</a> for activities involving Big Data and Data Analytics as related to Unmanned Aircraft Systems and Precision Agriculture, with multiple participating meetup groups around the midwest.  If you would like to set up your own participating meetup group, please contact <a href='mailto:tdesell@cs.und.edu'>Travis Desell</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='row'>
+        {{#meetups}}
+        <div class='col-sm-6' style='margin-bottom:10px;'>
+            <div class='card'>
+                <b class='card-header'>{{location}}</b>
+                <img class='card-img-top' src='{{img}}'>
+
+                <div class='card-body'>
+                    <h5>{{title}}</h5>
+                    <a href='{{link}}' target='meetups'>Group Meetup Page</a>
+                </div>
+
+            </div>
+        </div>
+        {{/meetups}}
+    </div>
+</div>

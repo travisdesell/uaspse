@@ -19,14 +19,14 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Resources");
+print_header("UASPSE Social");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
 
-$resources_template = file_get_contents($cwd[__FILE__] . "/templates/resources_template.html");
+$social_template = file_get_contents($cwd[__FILE__] . "/templates/social_template.html");
 $m = new Mustache_Engine;
-echo $m->render($resources_template, $resources_info);
+echo $m->render($social_template, $social_info);
 
 
 require_once("footer.php");

@@ -1,43 +1,123 @@
-var vImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
-	
-function preLoginInfo()
-{
-	var pdiv = document.getElementById("pdiv");
-	var tspn = document.getElementById("uaspse_title");
 
-	tspn.innerHTML = "Notice about LinkedIn Profile Information";
-	
-	var body  = "<p><span style='font-weight: bold;'>Data Collection</span><br>Using your LinkedIn credentials to create a UASPSE Member Account will give ";
-	    body += "DigitalAg.org access to all the information in your linked in profile. By clicking ";
-	    body += "the 'Proceed' button, you authorize DigitalAg.org to collect this information and ";
-	    body += "store it in a database.<br> <br><span style='font-weight: bold;'>Data Removal</span><br>To remove your LinkedIn profile information from ";
-	    body += "the DigitalAg.org database and disenroll as a UASPSE Member, click the 'Remove UASPSE ";
-	    body += "Account' located on your UASPSE Member Profile. Doing so will perminently remove your LinkedIn ";
-            body += "data from the database. You may re-join the UASPSE Membership at any time.<br> <br><span style='font-weight: bold'>";
-	    body += "For what purpose will my data be used?</span><br>DigitalAg.org will use this data to identify and suggest potential partnerships ";
-	    body += "and disseminate project information to UASPSE Members.<br> <br><span style='font-weight: bold;'>Do you wish to proceed?</span></p>";
-	    body += "<p>";
-	    body += "<a style='border-radius: 5px; background-color: #c6b535; font-weight: bold; font-size: 1.0em; color: #FFFFFF; padding: 3px 3px; ";
-	    body += "border-style: solid; border-color: #000000; border-width: 1px' href='javascript: doNotProceed();'>Cancel</a> &nbsp; ";
-	    body += "<a style='border-radius: 5px; background-color: #23bc4a; font-weight: bold; font-size: 1.0em; color: #FFFFFF; padding: 3px 3px; ";
-	    body += "border-style: solid; border-color: #000000; border-width: 1px' href='javascript: proceedToLinkedIn()'>Proceed</a></p>";
+function enableSubscribeButton() {
+    $("#subscribeButton").click(function(event) {
+        console.log("clicked subscribe button!");
 
-	pdiv.innerHTML = body;
-
-	$('#profModal').modal({show:false});
-	$('#profModal').modal('show');
+        $.ajax({
+            type: 'POST',
+            url: 'update_account.php',
+            data : {
+                subscribe : 1,
+                userid : $("#accountEmailContent").attr("userid")
+            },
+            dataType : 'json',
+            success : function(response) {
+                $("#accountEmailContent").html(response.html);
+                enableUnsubscribeButton();
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(jqXHR.responseJSON.message);
+                console.log(textStatus);
+                $("#errorModalLabel").text(errorThrown);
+                $("#errorModalText").text(jqXHR.responseJSON.message);
+                $("#errorModal").modal();
+            },
+            async: true
+        });
+    });
 }
+
+function enableUnsubscribeButton() {
+    $("#unsubscribeButton").click(function(event) {
+        $.ajax({
+            type: 'POST',
+            url: 'update_account.php',
+            data : {
+                subscribe : 0,
+                userid : $("#accountEmailContent").attr("userid")
+            },
+            dataType : 'json',
+            success : function(response) {
+                $("#accountEmailContent").html(response.html);
+                enableSubscribeButton();
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                console.log(jqXHR.responseJSON.message);
+                console.log(textStatus);
+
+                $("#errorModalLabel").text(errorThrown);
+                $("#errorModalText").text(jqXHR.responseJSON.message);
+                $("#errorModal").modal();
+            },
+            async: true
+        });
+    });
+}
+
+$(document).ready(function() {  
+    $(".toggler").click(function(event) {
+        var text = $(this).html();
+
+        console.log("clicked a toggler, text is '" + text + "'");
+
+        if (text === "show") {
+            $(this).html("hide");
+        } else {
+            $(this).html("show");
+        }
+    });
+
+    $("#submitKeywordsButton").click(function(event) { 
+        var keywords = $("#keywordsInput").val();
+        console.log("keywords are: " + keywords);
+
+        if (keywords !== '') {
+            $.ajax({
+                type: 'POST',
+                url: 'update_account.php',
+                data : {
+                    keywords : keywords,
+                    userid : $("#accountEmailContent").attr("userid")
+                },
+                dataType : 'text',
+                success : function(response) {
+                    $("#submitKeywordsButton").html("Update");
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(jqXHR.responseJSON.message);
+                    console.log(textStatus);
+
+                    $("#errorModalLabel").text(errorThrown);
+                    $("#errorModalText").text(jqXHR.responseText.message);
+                    $("#errorModal").modal();
+                },
+                async: true
+            });
+        }
+
+        event.preventDefault(); 
+    }); 
+
+    enableSubscribeButton();
+    enableUnsubscribeButton();
+
+});
+
+
+var vImage = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_80x80_v1.png";
 
 function proceedToLinkedIn()
 {
-	var tVal = ""+window.location;
-	var array = tVal.split('?');
-	window.location = array[0] + "?oauth=1";
+    var tVal = ""+window.location;
+    var array = tVal.split('?');
+    console.log("setting window.location to: '" + array[0] + "?oauth=1");
+    window.location = array[0] + "?oauth=1";
 }
 
-function doNotProceed()
-{
-	$('#profModal').modal('hide');
+function updateKeywords() {
 }
 
 /*
@@ -134,6 +214,9 @@ function getProfile(ui)
 			if(pdiv != null)
 			{
 				var data = JSON.parse(this.responseText);
+
+                console.log("response from getProfile was:");
+                console.log(data);
 				
 				if(data.hasError == null)
 				{
@@ -208,6 +291,7 @@ function getProfile(ui)
 	};
 
 	var ajaxURL = "https://" + window.location.host + "/community.php?profile=" + ui;
+    console.log("window.location.host: " + window.location.host);
 
 	xhttp.open("GET", ajaxURL, true);
 	xhttp.send();
