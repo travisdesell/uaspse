@@ -20,86 +20,68 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Community");
+print_header("UASPSE Events");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
 
-if ($isAuthorized) $members_info['logged_in'] = 1;
+$show_prior = false;
+if (isset($_GET['past'])) {
+    $show_prior = true;
+}
 
+$events_info = array();
 
+function convert_date($str) {
+    $original = $str;
+    $year = $str[0] . $str[1] . $str[2] . $str[3];
+    $month= $str[5] . $str[6];
+    $day = $str[8] . $str[9];
+    $str = "$day.$month.$year";
+
+    error_log("converted '$original' to '$str'");
+    return $str;
+}
 
 $dbase = opendb();
 if ($dbase) {
-    $current_number = 1;
+    if ($show_prior) {
+        $query = "SELECT * FROM events WHERE start < CURDATE()";
+    } else {
+        $query = "SELECT * FROM events WHERE start >= CURDATE()";
+    }
+    $result = $dbase->query($query);
 
-    error_log("_GET: " . json_encode($_GET));
-
-    if (isset($_GET['number'])) {
-        $current_number = mysqli_real_escape_string($dbase, $_GET['number']);
-        error_log("after escape string, current_number: " . $current_number);
-        if (!ctype_digit($current_number)) {
-            error_log("not integer!");
-            $current_number = 1;
+    $i = 0;
+    while( ($row = $result->fetch_assoc()) != NULL ) {
+        if ($i == 0) {
+            $row['first'] = 1;
         }
-    }
+        $row['number'] = $i;
 
-    $start_row = ($current_number - 1) * 10;
-    $query = "SELECT * FROM profiles ORDER BY lastName LIMIT $start_row, 10";
-    $result = $dbase->query($query);
-    while (($row = $result->fetch_assoc()) != NULL) {
-        $row['profile'] = unserialize($row['profile']);
-        $country_code = $row['profile']->location->country->code;
-        $row['profile']->location->country = code_to_country($country_code);
-
-        if ($row['pictureUrl'] == NULL || $row['pictureUrl'] == '') unset($row['pictureUrl']);
-        if ($row['keywords'] == NULL || $row['keywords'] == '') unset($row['keywords']);
-
-        $members_info['members'][] = $row;
-    }
-
-    $members_info['prev_number'] = $current_number - 1;
-    $members_info['next_number'] = $current_number + 1;
-
-    $query = "SELECT count(*) FROM profiles";
-    $result = $dbase->query($query);
-    $row = $result->fetch_assoc();
-    $number_members = $row['count(*)'];
-
-    error_log("number members: $number_members, div 10: ". ($number_members / 10));
-    error_log("current number: $current_number, max number: " . ceil($number_members / 10));
-    error_log("equal?" . ($current_number == ceil($number_members / 10)));
-
-    if ($current_number == 1) {
-        $members_info['previous_disabled'] = 'disabled';
-    }
-    if ($current_number == ceil($number_members / 10)) {
-        $members_info['next_disabled'] = 'disabled';
-    }
-
-    $members_info['numbers'] = array();
-
-    error_log("current number: $current_number");
-    for ($i = 1; $i <= ($number_members / 10) + 1; $i++) {
-        if ($i == $current_number) {
-            $members_info['numbers'][] = array(
-                'number' => $i,
-                'current' => 1
-            );
+        if ($row['start'] == $row['stop'] || is_null($row['stop']) ) {
+            unset($row['stop']);
+            $row['start'] = convert_date($row['start']);
+            $row['start'] = date('F jS Y', strtotime($row['start']));
         } else {
-            $members_info['numbers'][] = array(
-                'number' => $i
-            );
+            $row['start'] = convert_date($row['start']);
+            $row['stop'] = convert_date($row['stop']);
+
+            $row['start'] = date('F jS Y', strtotime($row['start']));
+            $row['stop'] = date('F jS Y', strtotime($row['start']));
         }
+
+
+        $events_info['events'][] = $row;
+
+        $i++;
     }
 }
 
 
-
-
-$members_template = file_get_contents($cwd[__FILE__] . "/templates/members_template.html");
+$events_template = file_get_contents($cwd[__FILE__] . "/templates/events_template.html");
 $m = new Mustache_Engine;
-echo $m->render($members_template, $members_info);
+echo $m->render($events_template, $events_info);
 
 require_once("footer.php");
 ?>

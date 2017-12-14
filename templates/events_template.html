@@ -1,0 +1,28 @@
+<div class='container'>
+    <div class='row' style='margin-bottom:10px;'>
+        <div class="col-sm-12">
+            <div id="accordion" role="tablist">
+
+                {{#events}}
+                <div class="card" style='margin-bottom:10px;'>
+                    <div class="card-header" role="tab" id="heading_{{number}}">
+                        <p class='mb-0'>
+                        <b>{{title}}</b>, <i>{{start}}{{#stop}} - {{stop}}{{/stop}}</i>
+                        <a class='float-right toggler' data-toggle="collapse" href="#collapse_{{number}}" aria-expanded="{{#first}}true{{/first}}{{^first}}false{{/first}}" aria-controls="collapse_{{number}}">{{^first}}show{{/first}}{{#first}}hide{{/first}}</a>
+                        </p>
+                    </div>
+
+                    <div id="collapse_{{number}}" class="collapse {{#first}}show{{/first}}" role="tabpanel" aria-labelledby="heading_{{number}}">
+                        <div class="card-body">
+                            {{{spotlight}}}
+
+                            {{{addition}}}
+                        </div>
+                    </div>
+                </div>
+                {{/events}}
+
+            </div>
+        </div>
+	</div>
+</div> <!-- /container -->

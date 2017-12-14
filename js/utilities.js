@@ -57,6 +57,18 @@ function enableUnsubscribeButton() {
 }
 
 $(document).ready(function() {  
+    $(".toggler").click(function(event) {
+        var text = $(this).html();
+
+        console.log("clicked a toggler, text is '" + text + "'");
+
+        if (text === "show") {
+            $(this).html("hide");
+        } else {
+            $(this).html("show");
+        }
+    });
+
     $("#submitKeywordsButton").click(function(event) { 
         var keywords = $("#keywordsInput").val();
         console.log("keywords are: " + keywords);

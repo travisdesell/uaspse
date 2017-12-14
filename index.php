@@ -26,13 +26,25 @@ print_jumbotron();
 print_login_modal($isAuthorized);
 
 $news[] = array(
-    'date' => "Aug 23, 2017",
+    'date' => "December 15, 2017",
+    'title' => "Unmanning Data Mondays",
+    'html' => "We are pleased to announce we will be hosting a new webinar series about handling data from unmanned aerial systems. Please visit the <a href='./unmanning_data.php'>Unmanning Data Mondays</a> webinar webpage for more information!"
+);
+
+$news[] = array(
+    'date' => "December 15, 2017",
+    'title' => "Updated Website",
+    'html' => "The UASPSE website has been upgraded to bootstrap 4.0 and contains a lot more content! Please visit your <a href='./account.php'>Account Information</a> page to set your skills and research interests so we can better connect you with other hub members."
+);
+
+$news[] = array(
+    'date' => "August 23, 2017",
     'title' => "MBDH All Hands Meeting",
     'html' => "Registration for the <a href='http://midwestbigdatahub.org/2017-all-hands-meeting/'>2017 MBDH All Hands Meeting - Data-Enabled Midwest Resilience</a> in Omaha, Nebraska is now available!</p>"
 );
 
 $news[] = array(
-    'date' => "Aug 11, 2017",
+    'date' => "August 11, 2017",
     'html' => "New UASPSE Website online!"
 );
 
