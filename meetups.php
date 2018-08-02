@@ -19,7 +19,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Meetups");
+print_header("UPSiE Meetups");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);

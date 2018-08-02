@@ -8,7 +8,7 @@
                     Unmanned aerial systems (UAS) are excellent sensor deployment packages that are contributing to the data deluge in many fields such as agriculture, ecology and smart cities/infrastructure. Optical, infrared, LIDAR, multispectral and other sensor packages can provide data on scales impossible for humans to quickly and accurately analyze, leading to significant challenges in many fields wishing to operationally utilize UAS. This webinar series will feature speakers from academia and industry to discuss and introduce participants to UAS data analysis software and algorithms, metadata standards, and best practices, with a goal of harmonizing UAS data access, reproducibility and reuse across institutions and industry.
                     </p>
                     <p>
-                    UASPSE and the University of North Dakota are hosting a rotating series of webinars called <b>Unmanning Data Mondays: Getting the human out of unmanned aerial systems data.</b> The webinars are hosted in person from institutions involved with UASPSE and the Midwest Data Hub, and will be streamed online.
+                    UPSiE and the University of North Dakota are hosting a rotating series of webinars called <b>Unmanning Data Mondays: Getting the human out of unmanned aerial systems data.</b> The webinars are hosted in person from institutions involved with UPSiE and the Midwest Data Hub, and will be streamed online.
                     </p>
                 </div>
             </div>
@@ -17,19 +17,47 @@
         <div class='col-sm-12'>
             {{#webinars}}
             <div class='card' style='margin-bottom:10px;'>
-                <h5 class='card-header'>{{title}} <small>{{date}}, {{time}}</small></h5>
+                <h5 class='card-header'>{{title}} <small>{{{date}}}, {{time}}</small></h5>
                 <div class='card-body'>
-                    <b>URL:</b><br> {{#zoom_url}}<a href='{{zoom_url}}'>Zoom URL</a>{{/zoom_url}}{{^zoom_url}}Please check back here for the Zoom URL address.{{/zoom_url}}
+                    {{#has_slides}}
+                    <p>This webinar has already occurred, you can download slides from the webinar here:</p>
+                    <ul>
+                        {{#slides}}
+                        <li>
+                            <a href='{{slide_url}}'>{{slide_title}}</a> {{#slide_author}}- {{slide_author}}, <i>{{position}}</i>{{/slide_author}}
+                        </li>
+                    {{/slides}}
+                    </ul>
+                    {{/has_slides}}
+
+                    {{#video_url}}
+                    <p>You can watch a recording of this webinar here.</p>
+                    <video width="320" height="240" controls>
+                        <source src="{{video_url}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    {{/video_url}}
+
+                    {{^video_url}}
+                    <b>URL:</b> {{#zoom_url}}<a href='{{zoom_url}}'>{{zoom_url}}</a>{{/zoom_url}}{{^zoom_url}}Please check back here for the Zoom URL address.{{/zoom_url}}
+
+                    {{#location}}
                     <hr>
                     <b>Location:</b><br>
                     {{{location}}}
+                    {{/location}}
+                    {{/video_url}}
 
                     <hr>
 
                     {{#sessions}}
                     <h5>{{title}}</h5>
-                    <h5><i><small>{{presenter}}, {{position}}</small></i></h5>
-                    <p>{{description}}</p>
+                    {{#presenter}}
+                    <h5><i><small>{{{name}}}, {{position}}, {{institute}}</small></i></h5>
+                    {{/presenter}}
+
+
+                    <p>{{{description}}}</p>
                     {{^last}}<hr>{{/last}}
                     {{/sessions}}
 

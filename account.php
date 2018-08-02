@@ -21,7 +21,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Account Information");
+print_header("UPSiE Account Information");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);

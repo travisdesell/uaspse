@@ -10,18 +10,18 @@
                         <div class="item">
                             <div class='row'>
                                 <div class='col-md-3'>
-                                    <img src='{{source}}' alt='Image of {{name}}'/><br>
                                     <p style='text-align:center'>
+                                    <img src='{{source}}' alt='Image of {{name}}'/><br>
                                     <a data-toggle="collapse" data-parent="#investigatorAccordion" href="#investigatorAccordion{{accordion_id}}" aria-expanded="true" aria-controls="investigatorAccordion{{accordion_id}}">
                                         Show Bio
                                     </a>
                                     </p>
                                 </div>
                                 <div class='col-md-9'>
-                                    {{name}}, <small>{{^PI}}Co-{{/PI}}Principal Investigator</small><br>
-                                    <a href='{{homepage}}'>Website</a><br>
+                                    <a href='{{homepage}}'>{{name}}</a>, <small>{{^PI}}Co-{{/PI}}Principal Investigator</small><br>
                                     <a href='mailto:{{email}}'>{{email}}</a><br>
-                                    {{headline}}
+                                    <i>{{position}}</i><br>
+                                    {{location}}
                                 </div>
                             </div>
 

@@ -1,5 +1,5 @@
 		<div class="col-sm-4">
-			<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Events</p>
+			<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UPSiE Events</p>
 			<?php
 				$hasUserInfo = false;
 				$isAdmin = false;
@@ -64,7 +64,7 @@
 						if($usershow == 1 || $isAdmin == true)
 						{
 						echo "<div style='margin-bottom: 5px; padding: 2px;' class='well'><table><tr>";
-						echo "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='UASPSE Icon' ";
+						echo "<td style='vertical-align: top; padding: 5px; text-align: left;'><img alt='UPSiE Icon' ";
 						echo "src='img/uaspse-48.png' style='height: 48px; width: 48px; text-align: left;' />";
 						if($isAdmin)
 						{
@@ -85,7 +85,7 @@
 		</div>
 		<div class="col-sm-4">
 			<p class="well" 
-			style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UASPSE Event Spotlight</p>
+			style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>UPSiE Event Spotlight</p>
 			<div class="well" style="height: 340px; padding: 5px; overflow: auto; margin-bottom: 7px;">
 				<?php
 					$dbase = opendb();

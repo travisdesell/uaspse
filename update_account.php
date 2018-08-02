@@ -40,11 +40,11 @@ if ($isAuthorized) {
 
                 $response = array();
                 if ($subscribe == '0') {
-                    $response['html'] = "<p>The UASPSE team can occasionally send you emails involving UASPSE events and activities. We will not share your email address with third parties or email you without your permission. You can opt in to our emails with the following button.</p>
-                        <button id='subscribeButton' type='button' class='btn btn-primary' href='https://digitalag.org/opt_in.php?id={{id}}'>Subscribe to UASPSE E-Mails</button>";
+                    $response['html'] = "<p>The UPSiE team can occasionally send you emails involving UPSiE events and activities. We will not share your email address with third parties or email you without your permission. You can opt in to our emails with the following button.</p>
+                        <button id='subscribeButton' type='button' class='btn btn-primary' href='https://digitalag.org/opt_in.php?id={{id}}'>Subscribe to UPSiE E-Mails</button>";
                 } else if ($subscribe == '1') {
-                    $response['html'] = "<p>You have subscribed to emails about UASPSE events and activities. You can unsubscribe at any time with the following button.</p>
-                        <button id='unsubscribeButton' type='button' class='btn btn-danger' href='https://digitalag.org/opt_in.php?id={{id}}'>Unsubscribe from UASPSE E-Mails</button>";  
+                    $response['html'] = "<p>You have subscribed to emails about UPSiE events and activities. You can unsubscribe at any time with the following button.</p>
+                        <button id='unsubscribeButton' type='button' class='btn btn-danger' href='https://digitalag.org/opt_in.php?id={{id}}'>Unsubscribe from UPSiE E-Mails</button>";  
                 }
 
                 echo json_encode($response);

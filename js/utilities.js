@@ -155,7 +155,7 @@ function listAllMembers()
 			
 
 
-			tspn.innerHTML = "All UASPSE Member Profiles";
+			tspn.innerHTML = "All UPSiE Member Profiles";
 
 			var data = JSON.parse(this.responseText);
 				
@@ -176,7 +176,7 @@ function listAllMembers()
 			}
 			else
 			{
-				pdiv.innerHTML = "<p>Sorry, you must be logged into your UASPSE Member account in order to view the entire UASPSE Member list.<p>";
+				pdiv.innerHTML = "<p>Sorry, you must be logged into your UPSiE Member account in order to view the entire UPSiE Member list.<p>";
 			}
 			$('#swModal').modal({show:false});
 			$('#swModal').modal('show');
@@ -266,12 +266,12 @@ function getProfile(ui)
 					if(document.getElementById(cid) != null)
 					{
 					    html += "<p style='font-weight: bold; font-size: medium; text-align: right;'>";
-					    html += "<a href='https://" + window.location.host + "/?remove=" + data.id + "'>Remove UASPSE Account</a></p>";
+					    html += "<a href='https://" + window.location.host + "/?remove=" + data.id + "'>Remove UPSiE Account</a></p>";
 					}
 
 					html += "</td></tr></table>";
 					html += "<script>$('img_user_" + data.id +"').load(function(){console.log('loaded');}).error(function(){$('img_user_"+ data.id+"').attr('src', '"+ vImage +"'});</script></div>";	
-					tspn.innerHTML = "UASPSE Member Profile";
+					tspn.innerHTML = "UPSiE Member Profile";
 					pdiv.innerHTML = html;
 					$('#profModal').on('hidden', clearBodyPadding());
 					$('#profModal').modal({show:false});
@@ -280,8 +280,8 @@ function getProfile(ui)
 				else
 				{
 
-					tspn.innerHTML = "UASPSE Member Profile - Error";
-					pdiv.innerHTML = "<p>Sorry, you must be logged into your UASPSE Member account in order to view UASPSE Member profiles.<p>";
+					tspn.innerHTML = "UPSiE Member Profile - Error";
+					pdiv.innerHTML = "<p>Sorry, you must be logged into your UPSiE Member account in order to view UPSiE Member profiles.<p>";
 					$('#profModal').on('hidden', clearBodyPadding());
 					$('#profModal').modal({show:false});
 					$('#profModal').modal('show');

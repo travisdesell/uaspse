@@ -1,5 +1,5 @@
 <div class="col-sm-8">
-<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>Add UASPSE Events</p>
+<p class="well" style='font-size: small; font-weight: bold; padding: 3px; margin-bottom: 2px; background-color: #a1d6a0;'>Add UPSiE Events</p>
 <div style='height: 340px; padding: 5px; overflow: auto; margin-bottom: 7px; border-radius: 5px; border-width: 1px; border-color: 
 #DDDDDD; border-style: solid;'>
 <span id="formspan">
@@ -15,8 +15,8 @@
 <div id="form_container">
 <form id="form_46648" class="appnitro"  method="post" action="/events.php">
 	<div class="form_description">
-		<h2>Add UASPSE Event</h2>
-		<p>This is a form to add a UASPSE Event</p>
+		<h2>Add UPSiE Event</h2>
+		<p>This is a form to add a UPSiE Event</p>
 <?php
 	if(getIsAdmin())
 	{

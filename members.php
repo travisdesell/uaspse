@@ -20,7 +20,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Members");
+print_header("UPSiE Members");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);

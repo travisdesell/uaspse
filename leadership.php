@@ -20,7 +20,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UASPSE Leadership");
+print_header("UPSiE Leadership");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
@@ -33,7 +33,8 @@ $people_info['PIs'][] = array(
     'bio' => 'Dr. Clarke’s research interests encompass statistical methodology (with an emphasis on high dimensional and predictive methods), statistical computation, bioinformatics/computational biology, multi-type data analysis, data mining/machine learning, and bacterial genomics/metagenomics.',
     'homepage' => 'http://bigdata.unl.edu/about',
     'email' => 'jclarke3@unl.edu',
-    'headline' => 'Assoc. Professor of Food Science & Technology, Univ. of Nebraska - Lincoln'
+    'position' => 'Associate Professor of Food Science & Technology',
+    'location' => 'University of Nebraska - Lincoln'
 
 );
 
@@ -43,7 +44,8 @@ $people_info['PIs'][] = array(
     'bio' => 'Joe Colletti, Ph.D., is the senior associate dean for the College of Agriculture and Life Sciences at Iowa State University and, the associate director of the Iowa Agriculture and Home Economics Experiment Station. He has served in those positions since 2006. He oversees budgets, research and personnel for the college and Experiment Station. He also facilitates research planning and activities related to the bioeconomy and, in particular, development of Iowa State’s BioCentury Research Farm. His research areas focus on the economics of agroforestry, management of streamside buffer systems on farmland and biorenewable resources. He has taught undergraduate and graduate courses in forestry and natural resources economics, decision-making and management.',
     'homepage' => 'https://www.nrem.iastate.edu/people/joe-colletti',
     'email' => 'colletti@iastate.edu',
-    'headline' => 'Sr. Assoc. Dean for the College of Agriculture & Life Sciences, Iowa State Univ.'
+    'position' => 'Senior Associate Dean for the College of Agriculture & Life Sciences',
+    'location' => 'Iowa State University'
 );
 
 $people_info['PIs'][] = array(
@@ -54,22 +56,25 @@ $people_info['PIs'][] = array(
     'bio' => 'Dr. Desell is an associate professor at the University of North Dakota.  He is a computational scientist specializing in machine learning, computer vision, high performance and distributed computing and is involved in a number of research projects involving the application of unmanned aerial systems and the analysis of data captured by them. He is the PI on the NSF BDSPOKES: Unmanned Aerial Systems, Plant Sciences and Education project.',
     'email' => 'tdesell@cs.und.edu',
     'homepage' => 'http://tdesell.cs.und.edu',
-    'headline' => 'Assoc. Professor of Computer Science, Univ. of North Dakota'
+    'position' => 'Associate Professor of Computer Science',
+    'location' => 'University of North Dakota'
 );
 
 $people_info['PIs'][] = array(
     'name' => 'Greg Monaco',
     'source' => 'img/greg_monaco_80.jpg',
-    'bio' => 'Greg Monaco, Ph.D., has held several positions with the <a href="https://www.greatplains.net/" target="_blank">Great Plains Network</a> since August, 2000, when he joined GPN. He began as Research Collaboration Coordinator, and then was promoted to Director for Research and Education, followed by Executive Director for several years. His passion is to assist to help enable a richer set of shared resources across the region and to help promote the exciting and leading edge activities of GPN member institutions. He appreciates the opportunity to work with the excellent scientists, researchers and educators in the Great Plains region..',
-    'homepage' => 'http://confluence.greatplains.net/display/~gmonaco',
+    'bio' => 'Greg Monaco, Ph.D., is an experimental psychologist with contributions in the fields of cognitive psychology, psycholinguistics, and computer science.  He continues to mentor researchers and other professionals through his leadership with the <a href="http://researchadvisors.org">Research Advisors Group</a>',
+    'homepage' => 'http://researchadvisors.org',
     'email' => 'gmonaco@ksu.edu',
-    'headline' => 'Great Plains Network - Executive Director'
+    'position' => 'Research Associate Professor Emeritus',
+    'location' => 'Kansas State University'
 );
 
 $people_info['PIs'][] = array(
     'name' => 'Grant McGimpsey',
     'source' => 'img/grant_mcgimpsey_80.jpg',
-    'headline' => 'Vice President for Research & Economic Development at Univ. of North Dakota',
+    'position' => 'Vice President for Research & Economic Development',
+    'location' => 'University of North Dakota',
     'bio' => '',
     'email' => '',
     'homepage' => '',
