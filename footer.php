@@ -41,7 +41,7 @@
 
                 <p style="text-align: center;">
                 <img style='height: 50px;' src='/img/nsf_logo.png'/>
-                The UPSiE project has been generously funded by <a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=1636865&HistoricalAwards=false'>NSF Award #1636865</a>.
+                The UASPSE project has been generously funded by <a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=1636865&HistoricalAwards=false'>NSF Award #1636865</a>.
                 </p>
             </div>
         </div>

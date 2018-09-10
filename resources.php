@@ -19,7 +19,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UPSiE Resources");
+print_header("UASPSE Resources");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);

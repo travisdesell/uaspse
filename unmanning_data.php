@@ -19,7 +19,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UPSiE Unmanning Data Mondays");
+print_header("UASPSE - UPSiE Unmanning Data Mondays");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);

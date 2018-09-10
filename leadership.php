@@ -20,7 +20,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UPSiE Leadership");
+print_header("UASPSE Leadership");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
@@ -49,14 +49,14 @@ $people_info['PIs'][] = array(
 );
 
 $people_info['PIs'][] = array(
-    'name' => 'Travis Desell',
+    'name' => 'Aaron Bergstrom',
     'PI' => 1,
-    'source' => 'img/travis_desell_80.jpg',
-    'degrees' => 'Travis Desell, Ph.D., Computer Science, Rensselaer Polytechnic Institute.',
-    'bio' => 'Dr. Desell is an associate professor at the University of North Dakota.  He is a computational scientist specializing in machine learning, computer vision, high performance and distributed computing and is involved in a number of research projects involving the application of unmanned aerial systems and the analysis of data captured by them. He is the PI on the NSF BDSPOKES: Unmanned Aerial Systems, Plant Sciences and Education project.',
-    'email' => 'tdesell@cs.und.edu',
-    'homepage' => 'http://tdesell.cs.und.edu',
-    'position' => 'Associate Professor of Computer Science',
+    'source' => 'img/aaron_bergstrom_80.jpg',
+    'degrees' => 'Aaron Bergstrom, MS, Social Science, North Dakota State University.',
+    'bio' => 'Mr. Bergstrom is the Advanced Cyberinfrastructure Manager at the University of North Dakota Computational Research Center where he directs high performance and big data activities for the university. He is the PI on the NSF BDSPOKES: Unmanned Aerial Systems, Plant Sciences and Education project.',
+    'email' => 'aaron.bergstrom@und.edu',
+    'homepage' => 'http://www.crc.und.edu',
+    'position' => 'Advanced Cyberinfrastructure Manager',
     'location' => 'University of North Dakota'
 );
 
@@ -125,10 +125,10 @@ $people_info['board'][] = array(
 );
 
 $people_info['board'][] = array(
-    'name' => 'Mark Moran, Ph.D.',
+    'name' => 'Mark Moran',
     'source' => 'img/mark_moran_80.jpg',
     'homepage' => 'https://www.linkedin.com/in/moranmarkd/',
-    'headline' => 'Associate Director, John Deere Technology Innovation Center',
+    'headline' => 'Director, John Deere Technology Innovation Center',
     'last' => 1
 );
 

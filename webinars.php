@@ -19,7 +19,7 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UPSiE Meetups");
+print_header("UASPSE Webinars");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
@@ -27,17 +27,17 @@ print_login_modal($isAuthorized);
 $webinar_info['webinars'] = array();
 $webinar_info['webinars'][] = array(
     'title' => 'Unmanning Data Mondays',
-    'blurb' => '<p>UPSiE and the University of North Dakota are hosting a rotating series of webinars called <b>Unmanning Data Mondays: Getting the human out of unmanned aerial systems data.</b> The webinars are hosted in person from institutions involved with UPSiE and the Midwest Data Hub, and will be streamed online.</p><a href="./unmanning_data.php">Unmanning Data Mondays Webinars</a></p>'
+    'blurb' => '<p>UASPSE and the University of North Dakota are hosting a rotating series of webinars called <b>UPSiE - Unmanning Data Mondays: Getting the human out of unmanned aerial systems data.</b> The webinars are hosted in person from institutions involved with UASPSE and the Midwest Data Hub, and will be streamed online.</p><a href="./unmanning_data.php">Unmanning Data Mondays Webinars</a></p>'
 );
 
 $webinar_info['webinars'][] = array(
     'title' => 'Plant Phenomics Phridays',
-    'blurb' => '<p>In collaboration with UPSiE, Iowa State University is hosting a seminar series on Plant Phenomics.</p><a href="https://digital.ag.iastate.edu/isu-plant-phenomics-phridays-seminar-series" target="edu_resources">Iowa State University Seminar Series on Plant Phenomics</a></p>'
+    'blurb' => '<p>In collaboration with UASPSE, Iowa State University is hosting a seminar series on Plant Phenomics.</p><a href="https://digital.ag.iastate.edu/isu-plant-phenomics-phridays-seminar-series" target="edu_resources">Iowa State University Seminar Series on Plant Phenomics</a></p>'
 );
 
 $webinar_info['webinars'][] = array(
     'title' => 'Big Data Zoom Webinars',
-    'blurb' => '<p>In collaboration with UPSiE, <a href="https://www.researchadvisors.org/webinars">Zoom webinars</a> involving Big Data are being hosted through Kansas State University, the University of Nebraska-Lincoln, and the <a href="https://www.researchadvisors.org/">Research Advisors Group</a>.</p><a href="https://www.researchadvisors.org/webinars">Big Data Zoom Webinars</a>'
+    'blurb' => '<p>In collaboration with UASPSE, <a href="https://www.researchadvisors.org/webinars">Zoom webinars</a> involving Big Data are being hosted through Kansas State University, the University of Nebraska-Lincoln, and the <a href="https://www.researchadvisors.org/">Research Advisors Group</a>.</p><a href="https://www.researchadvisors.org/webinars">Big Data Zoom Webinars</a>'
 );
 
 

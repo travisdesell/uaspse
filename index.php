@@ -20,14 +20,26 @@ require("authorized.php");
 
 $isAuthorized = checkAuthorized();
 
-print_header("UPSiE Home");
+print_header("UASPSE Home");
 print_navbar($isAuthorized);
 print_jumbotron();
 print_login_modal($isAuthorized);
 
 $news[] = array(
+    'date' => "Aug 29, 2018",
+    'title' => 'UASPSE Announcement - Request for Proposals ',
+    'html' => "<p>The NSF BDSpokes UASPSE project is accepting proposals to use Foreign Travel funds for establishing collaborative research partnerships in the domain of Digital Agriculture. Applications are limited to Early Career researchers (Post-Doctorial Scholars and Pre-Tenure Tenure-Track Faculty), and Graduate Students. Awards will be provided as reimbursements through the University of North Dakota after each proposed travel event has been completed.</p><p><b>For additional details, visit - <a href='https://digitalag.org/uaspse-foreign-collaboration-announcement.pdf'>https://digitalag.org/uaspse-foreign-collaboration-announcement.pdf</a></b></p>"
+);
+
+$news[] = array(
+    'date' => "Aug 2, 2018",
+    'title' => 'Midwest Big Data Hub - Digital Agriculture Community - All-Hands Meeting 2018',
+    'html' => "<p>On behalf of the organizing committee, it is my honor to invite you to attend the <b>Midwest Big Data Hub's <u>Digital Agriculture Community</u> All-Hands Meeting sponsored by the National Science Foundation, which will be held in Lincoln, NE on September 21, 2018</b>. This is the second year for an event that we expect will become a preeminent regional meeting focused on the methodologies and technologies that enable Digital Agriculture, the associated data challenges, and the resulting insights into complex agricultural and agroecological systems. We have also organized a one day hands-on Unmanned Aerial Systems workshop prior to the meeting that will be held at ENREC in Mead, NE.</p><p>The conference website with further information and registration is <b><a href='https://bigdata.unl.edu/midwest-big-data-hub-digital-ag-all-hands-meeting'>https://bigdata.unl.edu/midwest-big-data-hub-digital-ag-all-hands-meeting</a></b>.</p><p>Please attend and share this announcement with your colleagues who may be interested.</p><p>Thank you for your consideration; we are looking forward to your participation in a great DigAg All-Hands Meeting!</p>"
+);
+
+$news[] = array(
     'date' => "May 18, 2018",
-    'title' => 'Save the date for the 2018 UPSiE All Hands Meeting',
+    'title' => 'Save the date for the 2018 UASPSE All Hands Meeting',
     'html' => 'The 2018 Digital Agriculture: Unmanned Aerial Systems, Plant Sciences and Education All Hands meeting will be held at the University of Nebraska-Lincoln on September 20th and 21st. Please mark your calendars!<br><b>Please note that the dates were previously noted as September 6th and 7th but have been updated to September 20th and 21st.</b>'
 );
 
@@ -61,7 +73,7 @@ $news[] = array(
 $news[] = array(
     'date' => "December 15, 2017",
     'title' => "Updated Website",
-    'html' => "The UPSiE website has been upgraded to bootstrap 4.0 and contains a lot more content! Please visit your <a href='./account.php'>Account Information</a> page to set your skills and research interests so we can better connect you with other hub members."
+    'html' => "The UASPSE website has been upgraded to bootstrap 4.0 and contains a lot more content! Please visit your <a href='./account.php'>Account Information</a> page to set your skills and research interests so we can better connect you with other hub members."
 );
 
 $news[] = array(
@@ -72,13 +84,13 @@ $news[] = array(
 
 $news[] = array(
     'date' => "August 11, 2017",
-    'html' => "New UPSiE Website online!"
+    'html' => "New UASPSE Website online!"
 );
 
 $news[] = array(
     'date' => "July 24, 2017",
     'title' => "MBDH Digital Ag - All Hands Meeting",
-    'html' => "Dates for the <a href='https://digital.ag.iastate.edu/uaspse-all-hands-meeting-sept-14-2017-ames-iowa' target='meeting'>UPSiE All-Hands Meeting</a>, Sept. 14-15, 2017 in Ames, Iowa have been set."
+    'html' => "Dates for the <a href='https://digital.ag.iastate.edu/uaspse-all-hands-meeting-sept-14-2017-ames-iowa' target='meeting'>UASPSE All-Hands Meeting</a>, Sept. 14-15, 2017 in Ames, Iowa have been set."
 );
 
 $news[] = array(
